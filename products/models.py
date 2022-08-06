@@ -1,3 +1,16 @@
 from django.db import models
 
-# Create your models here.
+
+class Product(models.Model):
+    STATUS_CHOICES = (
+        ('ava', 'available'),
+        ('nav', 'not_available'),
+    )
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    price = models.PositiveIntegerField(default=0)
+    active = models.BooleanField(default=True)
+    status = models.CharField(choices=STATUS_CHOICES, max_length=3, default='ava')
+    # cover = models.ImageField()
+    datetime_created = models.DateTimeField(auto_now_add=True)
+    datetime_modified = models.DateTimeField(auto_now=True)
