@@ -33,6 +33,15 @@
     </title>
 </head>
 <body dir='rtl'>
+    <!-- Preloader Start -->
+{#    <div class="ShoppingYar-preloader active">#}
+{#        <div class="ShoppingYar-preloader-inner h-100 d-flex align-items-center justify-content-center">#}
+{#            <div class="ShoppingYar-child ShoppingYar-bounce1"></div>#}
+{#            <div class="ShoppingYar-child ShoppingYar-bounce2"></div>#}
+{#            <div class="ShoppingYar-child zuka-bounce3"></div>#}
+{#        </div>#}
+{#    </div>#}
+    <!-- Preloader End -->
         <!-- Header Start -->
         <header class="header">
             <div class="header-inner fixed-header">
@@ -41,7 +50,7 @@
                         <div class="col-xl-9 col-lg-8 col-5 col-xs-0 col-none col-sm-block p-0">
                             <nav class="main-navigation">
                                 <div class="site-branding" style="margin-right: 30px;">
-                                    <a href="index.html" class="logo">
+                                    <a href="{% url 'home_page' %}" class="logo">
                                         <figure class="logo--normal d-none d-sm-block">
                                             <img class="px-5" src="{% static 'img/codingyar_logo.png' %}"
                                                  style="max-height: 50px; margin-bottom: -15px;" alt="Logo">
@@ -126,6 +135,33 @@
         {% block content %}
 
         {% endblock %}
+    <!-- Footer Start-->
+        <footer class="footer">
+            <div class="footer-top bg-color ptb--50" data-bg-color="#f6f6f6">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-9 text-center">
+                            <div class="footer-widget mb--50">
+                                <div class="textwidget">
+                                    <img src="{% static 'img/codingyar_logo.png' %}" alt="Logo">
+                                </div>
+                            </div>
+                            <div class="footer-widget mb--50 pb--1">
+                                <ul class="footer-menu">
+                                    <li><a href="">درباره ما</a></li>
+                                    <li><a href="">قوانین و مقررات</a></li>
+                                    <li><a href="">تماس با ما</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-widget">
+                                Codingyar.com © | all rights reserved
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer End-->
 <!-- Bootstrap JS -->
 {#<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"#}
 {#        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"#}
