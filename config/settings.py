@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # local apps
     'accounts',
     'pages',
+    'products',
 
     # third party apps
     'crispy_forms',
