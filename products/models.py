@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Product(models.Model):
@@ -14,3 +15,6 @@ class Product(models.Model):
     cover = models.ImageField(upload_to='covers/', blank=True)
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)
+
+    def get_absolute_url(self):
+        return reverse('product_details_view', args=[self.id])

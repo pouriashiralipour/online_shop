@@ -7,7 +7,7 @@
 {% block content %}
     <h1>Products</h1>
     {% for product in products %}
-        <h3>{{ product.title }}</h3>
+        <a href="{{ product.get_absolute_url }}"><h3>{{ product.title }}</h3></a>
         <img src="{{ product.cover.url }}" alt="" width="500" height="500">
         <h5>{{ product.price }}</h5>
         <p>{{ product.description|truncatewords:10 }}</p>
