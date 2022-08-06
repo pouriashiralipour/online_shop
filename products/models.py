@@ -11,6 +11,6 @@ class Product(models.Model):
     price = models.PositiveIntegerField(default=0)
     active = models.BooleanField(default=True)
     status = models.CharField(choices=STATUS_CHOICES, max_length=3, default='ava')
-    # cover = models.ImageField()
+    cover = models.ImageField(upload_to='covers/', blank=True)
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)
