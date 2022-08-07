@@ -32,11 +32,11 @@ class Comments(models.Model):
         ('4', 'Good'),
         ('5', 'Perfect'),
     ]
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comment')
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments')
     text = models.TextField()
     stars = models.CharField(max_length=10, choices=PRODUCT_STARS, blank=True, null=True)
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comment')
     is_active = models.BooleanField()
     recommend = models.BooleanField()
