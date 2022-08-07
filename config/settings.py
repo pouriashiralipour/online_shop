@@ -52,7 +52,16 @@ INSTALLED_APPS = [
     'allauth.account',
     'rosetta',
     'jalali_date',
+    'django.contrib.humanize',
 ]
+
+USE_THOUSAND_SEPARATOR = True
+
+THOUSAND_SEPARATOR = ','
+
+DECIMAL_SEPARATOR = '.'
+
+NUMBER_GROUPING = 3
 
 SITE_ID = 1
 
@@ -176,7 +185,6 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
-
 
 # media files
 MEDIA_URL = '/media/'

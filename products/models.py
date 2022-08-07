@@ -11,7 +11,7 @@ class Product(models.Model):
     )
     title = models.CharField(max_length=200)
     description = models.TextField()
-    price = models.PositiveIntegerField(default=0)
+    price = models.PositiveIntegerField()
     active = models.BooleanField(default=True)
     status = models.CharField(choices=STATUS_CHOICES, max_length=3, default='ava')
     cover = models.ImageField(upload_to='covers/', blank=True)
