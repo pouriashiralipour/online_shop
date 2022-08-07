@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-07 12:50+0430\n"
+"POT-Creation-Date: 2022-08-07 13:02+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,13 +21,46 @@ msgstr ""
 msgid "DetailView"
 msgstr "لیست محصولات"
 
+#: .\templates\products\product_details_view.html:21
+msgid "Products details of"
+msgstr "جزئیات محصول"
+
+#: .\templates\products\product_details_view.html:44
+#: .\templates\products\product_details_view.html:46
+msgid "$"
+msgstr "تومان"
+
 #: .\templates\products\product_details_view.html:57
 msgid "Add to cart"
 msgstr "اضافه به سبد خرید"
 
+#: .\templates\products\product_details_view.html:61
+msgid "categoreis"
+msgstr "دسته بندی ها"
+
+#: .\templates\products\product_details_view.html:77
+msgid "Products Details"
+msgstr "جزئیات محصول"
+
 #: .\templates\products\product_details_view.html:85
 msgid "comments"
 msgstr "نظرات"
+
+#: .\templates\products\product_details_view.html:111
+msgid "black"
+msgstr "مشکی"
+
+#: .\templates\products\product_details_view.html:112
+msgid "green"
+msgstr "سبز"
+
+#: .\templates\products\product_details_view.html:113
+msgid "red"
+msgstr "قرمز"
+
+#: .\templates\products\product_details_view.html:114
+msgid "orange"
+msgstr "نارنجی"
 
 #: .\templates\products\product_details_view.html:172
 msgid "Write your comment"
@@ -36,3 +69,7 @@ msgstr "نظر خود را بنویسید"
 #: .\templates\products\product_details_view.html:183
 msgid "send"
 msgstr "ارسال"
+
+#: .\templates\products\product_details_view.html:240
+msgid "Start typing and press Enter to search"
+msgstr ""
