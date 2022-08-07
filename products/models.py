@@ -39,12 +39,13 @@ class Comments(models.Model):
     ]
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments')
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments')
-    text = models.TextField()
-    stars = models.CharField(max_length=10, choices=PRODUCT_STARS, blank=True, null=True)
+    text = models.TextField(verbose_name='Comment Text')
+    stars = models.CharField(max_length=10, choices=PRODUCT_STARS, blank=True, null=True, verbose_name='What is your '
+                                                                                                       'star?')
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)
-    recommend = models.BooleanField(default=True)
+    recommend = models.BooleanField(default=True, verbose_name='این محصول را پیشنهاد می کنم')
 
     # Manager
     objects = models.Manager()
