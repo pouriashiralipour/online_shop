@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-07 13:02+0430\n"
+"POT-Creation-Date: 2022-08-07 13:24+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,13 +17,45 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
+#: .\models.py:35
+msgid "Very Bad"
+msgstr "خیلی بد"
+
+#: .\models.py:36
+msgid "Bad"
+msgstr "بد"
+
+#: .\models.py:37
+msgid "Normal"
+msgstr "متوسط"
+
+#: .\models.py:38
+msgid "Good"
+msgstr "خوب"
+
+#: .\models.py:39
+msgid "Perfect"
+msgstr "عالی"
+
+#: .\models.py:43
+msgid "Comment Text"
+msgstr "متن نظر"
+
+#: .\models.py:48
+msgid "What is your star?"
+msgstr "امتیاز شما به این محصول"
+
+#: .\models.py:55
+msgid "I suggest this product"
+msgstr "این محصول را پیشنهاد می کنم"
+
 #: .\templates\products\product_details_view.html:9
 msgid "DetailView"
 msgstr "لیست محصولات"
 
 #: .\templates\products\product_details_view.html:21
 msgid "Products details of"
-msgstr "جزئیات محصول"
+msgstr "توضیحات محصول"
 
 #: .\templates\products\product_details_view.html:44
 #: .\templates\products\product_details_view.html:46
@@ -40,7 +72,7 @@ msgstr "دسته بندی ها"
 
 #: .\templates\products\product_details_view.html:77
 msgid "Products Details"
-msgstr "جزئیات محصول"
+msgstr "توضیحات محصول"
 
 #: .\templates\products\product_details_view.html:85
 msgid "comments"
