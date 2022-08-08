@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+from django.contrib.messages import constants as message
 from pathlib import Path
 from environs import Env
 
@@ -189,3 +189,8 @@ ACCOUNT_UNIQUE_EMAIL = True
 # media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
+
+# for message framework
+MESSAGE_TAGS = {
+    message.ERROR: 'danger',
+}

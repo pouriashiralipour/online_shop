@@ -1,6 +1,11 @@
 from django.shortcuts import render
 from django.views import generic
+from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.messages.views import SuccessMessageMixin
+
 
 from .models import Product, Comments
 from .forms import CommentsForm
@@ -13,7 +18,7 @@ class ProductListView(generic.ListView):
     context_object_name = 'products'
 
 
-class ProductDetailsView(generic.DeleteView):
+class ProductDetailsView(generic.DetailView):
     template_name = 'products/product_details_view.html'
     model = Product
     context_object_name = 'product'
@@ -24,9 +29,11 @@ class ProductDetailsView(generic.DeleteView):
         return context
 
 
-class CommentCreateView(generic.CreateView):
+class CommentCreateView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
     model = Comments
     form_class = CommentsForm
+    redirect_field_name = 'redirect_to'
+    success_message = _("Your comment has been registered successfully and will be placed on the Sabbath after review")
 
     def form_valid(self, form):
         new_comment = form.save(commit=False)
