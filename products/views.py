@@ -38,7 +38,6 @@ class CommentCreateView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateV
     def form_valid(self, form):
         new_comment = form.save(commit=False)
         new_comment.author = self.request.user
-
         product_id = int(self.kwargs['product_id'])
         product = get_object_or_404(Product, id=product_id)
         new_comment.product = product
