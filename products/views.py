@@ -42,3 +42,9 @@ class CommentCreateView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateV
         product = get_object_or_404(Product, id=product_id)
         new_comment.product = product
         return super().form_valid(form)
+
+
+class SearchResultsView(generic.ListView):
+    template_name = 'products/search_results.html'
+    model = Product
+    context_object_name = 'products_list'
