@@ -11,5 +11,5 @@ class HomePageView(generic.ListView):
     context_object_name = 'products'
 
 
-class AboutUsView(generic.TemplateView):
-    template_name = 'pages/about_us.html'
+class ContactUsView(generic.TemplateView):
+    template_name = 'pages/contact_us.html'
