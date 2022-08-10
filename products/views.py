@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from django.views import generic
+from django.db.models import Q
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
-
 
 from .models import Product, Comments
 from .forms import CommentsForm
@@ -48,4 +48,7 @@ class SearchResultsView(generic.ListView):
     template_name = 'products/search_results.html'
     model = Product
     context_object_name = 'products_list'
-    queryset = Product.objects.filter(title__icontains='کفش')
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        return Product.objects.filter(title__icontains=query)

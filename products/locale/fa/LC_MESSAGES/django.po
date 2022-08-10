@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-08 09:03+0430\n"
+"POT-Creation-Date: 2022-08-10 19:39+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,6 +59,7 @@ msgstr "توضیحات محصول"
 
 #: .\templates\products\product_details_view.html:46
 #: .\templates\products\product_details_view.html:48
+#: .\templates\products\search_results.html:12
 msgid "$"
 msgstr "تومان"
 
@@ -101,10 +102,6 @@ msgstr "نظر خود را بنویسید"
 #: .\templates\products\product_details_view.html:185
 msgid "send"
 msgstr "ارسال"
-
-#: .\templates\products\product_details_view.html:242
-msgid "Start typing and press Enter to search"
-msgstr ""
 
 #: .\views.py:36
 msgid ""

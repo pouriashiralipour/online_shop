@@ -1,13 +1,16 @@
 {% extends '_base.html' %}
+{% load i18n %}
 {% block title %}Search{% endblock title %}
 {% block content %}
-    <h1>Search Results</h1>
-    {% for product in products_list %}
-        <div>
-            <h3><a href="{{ product.get_absolute_url }}">{{ product.title }}</a></h3>
-            <img src="{{ product.cover.url}}" alt="cover" width="300" height="300">
-            <p>Author: {{ product.description|truncatewords:15 }}</p>
-            <p>Price: $ {{ product.price }}</p>
-        </div>
-    {% endfor %}
+    <div class="container ml-3">
+        <h1>Search Results</h1>
+        {% for product in products_list %}
+            <div>
+                <h3><a href="{{ product.get_absolute_url }}">{{ product.title }}</a></h3>
+                <img src="{{ product.cover.url }}" alt="cover" width="300" height="300">
+                <p>{{ product.description|truncatewords:15 }}</p>
+                <p>{{ product.price }} {% translate '$' %} </p>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock content %}
