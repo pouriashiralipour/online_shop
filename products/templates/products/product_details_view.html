@@ -38,7 +38,7 @@
                         </div>
                         <div class="col-12 col-sm-8 product-main-details mt-md--50">
                             <div class="product-summary pl-lg--30 pl-md--0 text-right p-4">
-                                <h3 class="product-title mb--20">{{ product.title }}</h3>
+                                <h3 class="product-title mb--20">{{ product.title|escapejs }}</h3>
                                 <p class="product-short-description mb--20">
                                     {{ product.description|truncatewords:50 }}
                                 </p>
@@ -61,9 +61,9 @@
                                 </div>
                                 <div class="product-footer-meta mt-5 pt-5">
                                     <p><span class="m-0">{% translate 'categoreis' %}:</span>
-                                        <a href="shop.html">لباس</a>,
+                                        <a href="shop.html">{% translate 'dress' %}</a>,
                                         <a href="shop.html">تابستانی</a>,
-                                        <a href="shop.html">گرم</a>,
+                                        <a href="shop.html">{% translate 'worm' %}</a>,
                                         <a href="shop.html">زنانه</a>
                                     </p>
                                 </div>

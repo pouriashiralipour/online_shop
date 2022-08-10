@@ -8,14 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-10 19:39+0430\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2022-08-10 20:36+0430\n"
+"PO-Revision-Date: 2022-08-10 20:30+0430\n"
+"Last-Translator:   <impoush@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
 
 #: .\models.py:35
 msgid "Very Bad"
@@ -70,6 +71,14 @@ msgstr "اضافه به سبد خرید"
 #: .\templates\products\product_details_view.html:63
 msgid "categoreis"
 msgstr "دسته بندی ها"
+
+#: .\templates\products\product_details_view.html:64
+msgid "dress"
+msgstr "لباس"
+
+#: .\templates\products\product_details_view.html:66
+msgid "worm"
+msgstr "گرم"
 
 #: .\templates\products\product_details_view.html:79
 msgid "Products Details"
