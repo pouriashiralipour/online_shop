@@ -48,3 +48,4 @@ class SearchResultsView(generic.ListView):
     template_name = 'products/search_results.html'
     model = Product
     context_object_name = 'products_list'
+    queryset = Product.objects.filter(title__icontains='کفش')
