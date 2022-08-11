@@ -6,6 +6,8 @@ from django.utils.translation import gettext_lazy as _
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
+from django.core.paginator import Paginator
+
 
 from .models import Product, Comments
 from .forms import CommentsForm
@@ -14,6 +16,7 @@ from .forms import CommentsForm
 class ProductListView(generic.ListView):
     template_name = 'products/product_list_view.html'
     # model = Product
+    paginate_by = 2
     queryset = Product.objects.filter(active=True)
     context_object_name = 'products'
 
