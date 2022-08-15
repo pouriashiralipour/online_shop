@@ -4,12 +4,25 @@ from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=250, null=True)
+
+    class Meta:
+        ordering = ('name',)
+        verbose_name = _('category')
+        verbose_name_plural = _('categories')
+
+    def __str__(self):
+        return self.name
+
+
 class Product(models.Model):
     STATUS_CHOICES = (
         ('ava', 'available'),
         ('nav', 'not_available'),
     )
-    title = models.CharField(max_length=200)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name=_('category'), null=True)
+    title = models.CharField(max_length=250)
     description = models.TextField()
     price = models.PositiveIntegerField()
     active = models.BooleanField(default=True)
@@ -17,6 +30,7 @@ class Product(models.Model):
     cover = models.ImageField(upload_to='covers/', blank=True)
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)
+
 
     def __str__(self):
         return self.title
@@ -61,3 +75,4 @@ class Comments(models.Model):
 
     def get_absolute_url(self):
         return reverse('product_details_view', args=[self.product.id])
+
