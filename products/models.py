@@ -4,16 +4,16 @@ from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
 
 
-class Category(models.Model):
-    name = models.CharField(max_length=250, null=True)
-
-    class Meta:
-        ordering = ('name',)
-        verbose_name = _('category')
-        verbose_name_plural = _('categories')
-
-    def __str__(self):
-        return self.name
+# class Category(models.Model):
+#     name = models.CharField(max_length=250, null=True)
+#
+#     class Meta:
+#         ordering = ('name',)
+#         verbose_name = _('category')
+#         verbose_name_plural = _('categories')
+#
+#     def __str__(self):
+#         return self.name
 
 
 class Product(models.Model):
@@ -21,7 +21,7 @@ class Product(models.Model):
         ('ava', 'available'),
         ('nav', 'not_available'),
     )
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name=_('category'), null=True)
+    # category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name=_('category'), null=True)
     title = models.CharField(max_length=250)
     description = models.TextField()
     price = models.PositiveIntegerField()
@@ -30,7 +30,6 @@ class Product(models.Model):
     cover = models.ImageField(upload_to='covers/', blank=True)
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)
-
 
     def __str__(self):
         return self.title
