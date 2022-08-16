@@ -7,7 +7,7 @@ from products import models
 class HomePageView(generic.ListView):
     template_name = 'products/product_list_view.html'
     # model = Product
-    paginate_by = 2
+    paginate_by = 8
     queryset = models.Product.objects.filter(active=True)
     context_object_name = 'products'
 
