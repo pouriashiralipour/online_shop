@@ -11,14 +11,17 @@ class CommentInline(admin.StackedInline):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['title', 'slug', 'price', 'status', 'active', ]
+    list_display = ['title', 'slug', 'category_display', 'price', 'status', 'active', ]
     ordering = ('datetime_created',)
     search_fields = ('title',)
-    prepopulated_fields = {'slug': ('title', )}
+    prepopulated_fields = {'slug': ('title',)}
     list_per_page = 25
     inlines = [
         CommentInline,
     ]
+
+    def category_display(self, obj):
+        return ", ".join([category.title for category in obj.category.all()])
 
 
 @admin.register(Comments)
@@ -32,4 +35,4 @@ class CommentAdmin(admin.ModelAdmin):
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['title', 'status', 'position']
-    prepopulated_fields = {'slug': ('title', )}
+    prepopulated_fields = {'slug': ('title',)}
