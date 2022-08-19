@@ -24,19 +24,24 @@ class Category(models.Model):
 
 class Product(models.Model):
     STATUS_CHOICES = (
-        ('ava', 'available'),
-        ('nav', 'not_available'),
+        ('ava', _('available')),
+        ('nav', _('not_available')),
     )
     title = models.CharField(max_length=250, verbose_name=_('title'))
     slug = models.SlugField(unique=True, allow_unicode=True, null=True, blank=True, verbose_name=_('slug'))
     category = models.ManyToManyField(Category, verbose_name=_('category'))
-    description = models.TextField()
-    price = models.PositiveIntegerField()
-    active = models.BooleanField(default=True)
-    status = models.CharField(choices=STATUS_CHOICES, max_length=3, default='ava')
-    cover = models.ImageField(upload_to='covers/', blank=True)
-    datetime_created = models.DateTimeField(auto_now_add=True)
-    datetime_modified = models.DateTimeField(auto_now=True)
+    description = models.TextField(verbose_name=_('description'))
+    price = models.PositiveIntegerField(verbose_name=_('price'))
+    active = models.BooleanField(default=True, verbose_name=_('active'))
+    status = models.CharField(choices=STATUS_CHOICES, max_length=3, default='ava', verbose_name=_('status'))
+    cover = models.ImageField(upload_to='covers/', blank=True, verbose_name=_('cover'))
+    datetime_created = models.DateTimeField(auto_now_add=True, verbose_name=_('datetime_created'))
+    datetime_modified = models.DateTimeField(auto_now=True, verbose_name=_('datetime_modified'))
+
+    class Meta:
+        verbose_name = _('product')
+        verbose_name_plural = _('products')
+        ordering = ['datetime_created']
 
     def __str__(self):
         return self.title
@@ -98,8 +103,8 @@ class Comments(models.Model):
         ('4', _('Good')),
         ('5', _('Perfect')),
     ]
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments')
-    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments', default=1)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments', verbose_name=_('product'))
+    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments', default=1, verbose_name=_('author'))
     text = models.TextField(verbose_name=_('Comment Text'))
     stars = models.CharField(
         max_length=10,
@@ -107,8 +112,8 @@ class Comments(models.Model):
         blank=True, null=True,
         verbose_name=_('What is your star?')
     )
-    datetime_created = models.DateTimeField(auto_now_add=True)
-    datetime_modified = models.DateTimeField(auto_now=True)
+    datetime_created = models.DateTimeField(auto_now_add=True, verbose_name=_('datetime_created'))
+    datetime_modified = models.DateTimeField(auto_now=True, verbose_name=_('datetime_modified'))
     is_active = models.BooleanField(default=True)
     recommend = models.BooleanField(
         default=True,
@@ -118,6 +123,11 @@ class Comments(models.Model):
     # Manager
     objects = models.Manager()
     active_comment_manager = CustomActiveCommentManager()
+
+    class Meta:
+        verbose_name = _('comment')
+        verbose_name_plural = _('comments')
+        ordering = ['datetime_created']
 
     def get_absolute_url(self):
         return reverse('product_details_view', args=[self.product.slug])

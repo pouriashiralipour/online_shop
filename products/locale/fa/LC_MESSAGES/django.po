@@ -2,13 +2,11 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-19 15:02+0430\n"
+"POT-Creation-Date: 2022-08-19 15:50+0430\n"
 "PO-Revision-Date: 2022-08-10 20:30+0430\n"
 "Last-Translator:   <impoush@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +16,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.9.8\n"
 
+#: .\apps.py:8 .\models.py:43
+msgid "products"
+msgstr "محصولات"
+
 #: .\models.py:11 .\models.py:30
 msgid "title"
 msgstr "عنوان"
@@ -26,7 +28,7 @@ msgstr "عنوان"
 msgid "slug"
 msgstr "آدرس"
 
-#: .\models.py:13
+#: .\models.py:13 .\models.py:36
 msgid "status"
 msgstr "وضعیت"
 
@@ -34,49 +36,93 @@ msgstr "وضعیت"
 msgid "position"
 msgstr "پوزیشن"
 
-#: .\models.py:17
-#, fuzzy
-#| msgid "categoreis"
+#: .\models.py:17 .\models.py:32
 msgid "category"
 msgstr "دسته بندی"
 
 #: .\models.py:18
-#, fuzzy
-#| msgid "categoreis"
 msgid "categories"
 msgstr "دسته بندی ها"
 
-#: .\models.py:94
+#: .\models.py:27
+msgid "available"
+msgstr "موجود"
+
+#: .\models.py:28
+msgid "not_available"
+msgstr "نا موجود"
+
+#: .\models.py:33
+msgid "description"
+msgstr "توضیحات"
+
+#: .\models.py:34
+msgid "price"
+msgstr "قیمت"
+
+#: .\models.py:35
+msgid "active"
+msgstr "فعال"
+
+#: .\models.py:37
+msgid "cover"
+msgstr "کاور"
+
+#: .\models.py:38 .\models.py:115
+msgid "datetime_created"
+msgstr "تاریخ ساخت"
+
+#: .\models.py:39 .\models.py:116
+msgid "datetime_modified"
+msgstr "تاریخ اصلاح"
+
+#: .\models.py:42 .\models.py:106
+msgid "product"
+msgstr "محصول"
+
+#: .\models.py:100
 msgid "Very Bad"
 msgstr "خیلی بد"
 
-#: .\models.py:95
+#: .\models.py:101
 msgid "Bad"
 msgstr "بد"
 
-#: .\models.py:96
+#: .\models.py:102
 msgid "Normal"
 msgstr "متوسط"
 
-#: .\models.py:97
+#: .\models.py:103
 msgid "Good"
 msgstr "خوب"
 
-#: .\models.py:98
+#: .\models.py:104
 msgid "Perfect"
 msgstr "عالی"
 
-#: .\models.py:102
+#: .\models.py:107
+msgid "author"
+msgstr ""
+
+#: .\models.py:108
 msgid "Comment Text"
 msgstr "متن نظر"
 
-#: .\models.py:107
+#: .\models.py:113
 msgid "What is your star?"
 msgstr "امتیاز شما به این محصول"
 
-#: .\models.py:114
+#: .\models.py:120
 msgid "I suggest this product"
 msgstr "این محصول را پیشنهاد می کنم"
+
+#: .\models.py:128
+msgid "comment"
+msgstr "نظرات"
+
+#: .\models.py:129 .\templates\products\product_details_view.html:87
+msgid "comments"
+msgstr "نظرات"
 
 #: .\templates\products\product_details_view.html:11
 msgid "DetailView"
@@ -110,10 +156,6 @@ msgstr "گرم"
 #: .\templates\products\product_details_view.html:79
 msgid "Products Details"
 msgstr "توضیحات محصول"
-
-#: .\templates\products\product_details_view.html:87
-msgid "comments"
-msgstr "نظرات"
 
 #: .\templates\products\product_details_view.html:113
 msgid "black"
