@@ -173,11 +173,11 @@
                                                     <div class="col-lg-8 m-auto">
                                                         <span class="reply-title pull-right">{% trans 'Write your comment' %}</span>
                                                         <br>
-                                                        <form action="{% url 'comment_create_view' product.id %}" method="post" class="form text-right mt-5">
+                                                        <form action="" method="post" class="form text-right mt-5">
                                                             {% csrf_token %}
                                                             <div class="form-notes mb--20">
                                                                 <div class="form-group mb--10"></div>
-                                                                {{ comment_from|crispy }}
+                                                                {{ comment_form|crispy }}
                                                             </div>
                                                             <div class="form-group">
                                                                 <div class="form-row">

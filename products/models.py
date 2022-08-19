@@ -13,7 +13,7 @@ class Product(models.Model):
         ('nav', 'not_available'),
     )
     title = models.CharField(max_length=250)
-    slug = models.SlugField(unique=True, max_length=250, null=True, blank=True)
+    slug = models.SlugField(allow_unicode=True, unique=True, max_length=250, null=True, blank=True)
     description = models.TextField()
     price = models.PositiveIntegerField()
     active = models.BooleanField(default=True)
@@ -83,7 +83,7 @@ class Comments(models.Model):
         ('5', _('Perfect')),
     ]
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments')
-    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments')
+    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments', default=1)
     text = models.TextField(verbose_name=_('Comment Text'))
     stars = models.CharField(
         max_length=10,
