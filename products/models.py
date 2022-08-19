@@ -29,6 +29,7 @@ class Product(models.Model):
     )
     title = models.CharField(max_length=250, verbose_name=_('title'))
     slug = models.SlugField(unique=True, allow_unicode=True, null=True, blank=True, verbose_name=_('slug'))
+    category = models.ManyToManyField(Category, verbose_name=_('category'))
     description = models.TextField()
     price = models.PositiveIntegerField()
     active = models.BooleanField(default=True)

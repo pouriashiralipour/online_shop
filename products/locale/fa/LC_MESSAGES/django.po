@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-10 20:36+0430\n"
+"POT-Creation-Date: 2022-08-19 15:02+0430\n"
 "PO-Revision-Date: 2022-08-10 20:30+0430\n"
 "Last-Translator:   <impoush@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,35 +18,63 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.9.8\n"
 
-#: .\models.py:35
+#: .\models.py:11 .\models.py:30
+msgid "title"
+msgstr "عنوان"
+
+#: .\models.py:12 .\models.py:31
+msgid "slug"
+msgstr "آدرس"
+
+#: .\models.py:13
+msgid "status"
+msgstr "وضعیت"
+
+#: .\models.py:14
+msgid "position"
+msgstr "پوزیشن"
+
+#: .\models.py:17
+#, fuzzy
+#| msgid "categoreis"
+msgid "category"
+msgstr "دسته بندی"
+
+#: .\models.py:18
+#, fuzzy
+#| msgid "categoreis"
+msgid "categories"
+msgstr "دسته بندی ها"
+
+#: .\models.py:94
 msgid "Very Bad"
 msgstr "خیلی بد"
 
-#: .\models.py:36
+#: .\models.py:95
 msgid "Bad"
 msgstr "بد"
 
-#: .\models.py:37
+#: .\models.py:96
 msgid "Normal"
 msgstr "متوسط"
 
-#: .\models.py:38
+#: .\models.py:97
 msgid "Good"
 msgstr "خوب"
 
-#: .\models.py:39
+#: .\models.py:98
 msgid "Perfect"
 msgstr "عالی"
 
-#: .\models.py:43
+#: .\models.py:102
 msgid "Comment Text"
 msgstr "متن نظر"
 
-#: .\models.py:48
+#: .\models.py:107
 msgid "What is your star?"
 msgstr "امتیاز شما به این محصول"
 
-#: .\models.py:55
+#: .\models.py:114
 msgid "I suggest this product"
 msgstr "این محصول را پیشنهاد می کنم"
 
@@ -60,7 +88,6 @@ msgstr "توضیحات محصول"
 
 #: .\templates\products\product_details_view.html:46
 #: .\templates\products\product_details_view.html:48
-#: .\templates\products\search_results.html:12
 msgid "$"
 msgstr "تومان"
 
@@ -112,7 +139,11 @@ msgstr "نظر خود را بنویسید"
 msgid "send"
 msgstr "ارسال"
 
-#: .\views.py:36
+#: .\templates\products\search_results.html:5
+msgid "Search"
+msgstr "جست و جو"
+
+#: .\views.py:63
 msgid ""
 "Your comment has been registered successfully and will be placed on the "
 "Sabbath after review"
