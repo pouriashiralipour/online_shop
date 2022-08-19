@@ -20,29 +20,28 @@ class ProductListView(generic.ListView):
     context_object_name = 'products'
 
 
-def product_details_view(request, pk):
-    product = get_object_or_404(Product, pk=pk)
-    product_comments = product.comments.all()
-    if request.method == "POST":
-        comment_form = CommentsForm(request.POST)
-        if comment_form.is_valid():
-            new_comment = comment_form.save(commit=False)
-            new_comment.product = product
-            new_comment.user = request.user
-            new_comment.save()
-            comment_form = CommentsForm()
-    else:
-        comment_form = CommentsForm()
+def product_details_view(request, slug=None):
+    product_obj = None
+    if slug is not None:
+        product_obj = get_object_or_404(Product, slug=slug)
+    # product_comments = product.comments.all()
+    # if request.method == "POST":
+    #     comment_form = CommentsForm(request.POST)
+    #     if comment_form.is_valid():
+    #         new_comment = comment_form.save(commit=False)
+    #         new_comment.product = product
+    #         new_comment.user = request.user
+    #         new_comment.save()
+    #         messages.success(request,
+    #                          _("Your comment has been registered successfully and will be placed on the Sabbath after review"))
+    #         comment_form = CommentsForm()
+    # else:
+    #     comment_form = CommentsForm()
+    context = {'comment_from': CommentsForm(), 'product': product_obj}
     return render(
         request,
         'products/product_details_view.html',
-        {
-            'product': product,
-            'comment_form': comment_form,
-            'product_comments': product_comments,
-
-
-        }
+        context,
     )
 
 
@@ -51,12 +50,12 @@ def product_details_view(request, pk):
 #     model = Product
 #     context_object_name = 'product'
 #
-#     def get_context_data(self, **kwargs):
+#     def get_context_data(self, pk, **kwargs):
 #         context = super().get_context_data(**kwargs)
 #         context['comment_from'] = CommentsForm()
 #         return context
-#
-#
+
+
 class CommentCreateView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
     model = Comments
     form_class = CommentsForm
@@ -66,8 +65,8 @@ class CommentCreateView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateV
     def form_valid(self, form):
         new_comment = form.save(commit=False)
         new_comment.author = self.request.user
-        product_id = int(self.kwargs['product_id'])
-        product = get_object_or_404(Product, id=product_id)
+        slug = str(self.kwargs['slug'])
+        product = get_object_or_404(Product, slug=slug)
         new_comment.product = product
         return super().form_valid(form)
 

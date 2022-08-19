@@ -13,7 +13,7 @@ class Product(models.Model):
         ('nav', 'not_available'),
     )
     title = models.CharField(max_length=250)
-    slug = models.SlugField(allow_unicode=True, unique=True, max_length=250, null=True, blank=True)
+    slug = models.SlugField(unique=True, allow_unicode=True, null=True, blank=True)
     description = models.TextField()
     price = models.PositiveIntegerField()
     active = models.BooleanField(default=True)
@@ -26,7 +26,7 @@ class Product(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('product_details_view', args=[self.id])
+        return reverse('product_details_view', args=[self.slug])
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
@@ -36,7 +36,7 @@ def slugify_instance_title(instance, save=False, new_slug=None):
     if new_slug is not None:
         slug = new_slug
     else:
-        slug = slugify(instance.title)
+        slug = slugify(instance.title, allow_unicode=True)
     Klass = instance.__class__
     qs = Klass.objects.filter(slug=slug).exclude(id=instance.id)
     if qs.exists():
@@ -104,4 +104,4 @@ class Comments(models.Model):
     active_comment_manager = CustomActiveCommentManager()
 
     def get_absolute_url(self):
-        return reverse('product_details_view', args=[self.product.id])
+        return reverse('product_details_view', args=[self.product.slug])
