@@ -1,0 +1,148 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    CategoryListView
+{% endblock %}
+
+{% block content %}
+    <!-- Preloader Start -->
+    <div class="ShoppingYar-preloader active">
+        <div class="ShoppingYar-preloader-inner h-100 d-flex align-items-center justify-content-center">
+            <div class="ShoppingYar-child ShoppingYar-bounce1"></div>
+            <div class="ShoppingYar-child ShoppingYar-bounce2"></div>
+            <div class="ShoppingYar-child zuka-bounce3"></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+    <!-- Main Wrapper Start -->
+    <div class="wrapper">
+        <!-- Main Content Wrapper Start -->
+        <div class="main-content-wrapper container-fluid">
+            <div class="shop-page-wrapper shop-fullwidth">
+                <div class="container">
+                    <div class="row mb--50">
+                        <div class="col-12">
+                            <div class="shop-toolbar">
+                                <div class="container row align-items-center">
+                                    <div class="col-lg-12 mb-md--50 mb-xs--10">
+                                        <div class="shop-toolbar__left d-flex align-items-sm-center align-items-start flex-sm-row flex-column">
+                                            <p class="product-pages">نمایش {{ page_obj.number }}
+                                                از {{ page_obj.paginator.num_pages }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid shop-products">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="tab-content" id="product-tab-content">
+                                <div class="tab-pane fade show active" id="nav-all">
+                                    <div class="row xxl-block-grid-6 grid-space-20">
+                                        {#                                        <div class="col-xl-3 col-md-4 col-sm-6 mb--50">#}
+                                        {#                                            <div class="ShoppingYar-product">#}
+                                        {#                                                <div class="product-inner">#}
+                                        {#                                                    <figure class="product-image">#}
+                                        {#                                                        <a href="product-details.html">#}
+                                        {#                                                            <img src="https://dkstatics-public.digikala.com/digikala-products/15d774761e234a15c1c559ac540963baad9e229f_1631704695.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/quality,q_90"#}
+                                        {#                                                                 alt="Products">#}
+                                        {#                                                        </a>#}
+                                        {#                                                        <div class="ShoppingYar-product-action">#}
+                                        {#                                                            <div class="product-action d-flex">#}
+                                        {#                                                                <a href="wishlist.html" class="action-btn">#}
+                                        {#                                                                    <i class="flaticon flaticon-like"></i>#}
+                                        {#                                                                </a>#}
+                                        {#                                                            </div>#}
+                                        {#                                                        </div>#}
+                                        {#                                                        <span class="product-badge">تخفیف ویژه</span>#}
+                                        {#                                                    </figure>#}
+                                        {#                                                    <div class="product-info">#}
+                                        {#                                                        <h3 class="product-title h6 mb--15">#}
+                                        {#                                                            <a href="product-details.html">پتوی مسافرتی</a>#}
+                                        {#                                                        </h3>#}
+                                        {#                                                        <div class="product-price-wrapper mb--30">#}
+                                        {#                                                            <span class="money text-success">۵۹,۰۰۰ تومان</span>#}
+                                        {#                                                            <span class="money-separator">-</span>#}
+                                        {#                                                            <span class="old-price text-danger">#}
+                                        {#                                                                <span class="money text-danger">۸۰,۰۰۰ تومان</span>#}
+                                        {#                                                            </span>#}
+                                        {#                                                        </div>#}
+                                        {#                                                        <a href="cart.html"#}
+                                        {#                                                           class="btn btn-small btn-bg-sand btn-color-dark px-3">اضافه#}
+                                        {#                                                            کردن به سبد خرید</a>#}
+                                        {#                                                    </div>#}
+                                        {#                                                </div>#}
+                                        {#                                            </div>#}
+                                        {#                                        </div>#}
+                                        {% for product in category.products.all %}
+                                            <div class="col-xl-3 col-md-4 col-sm-6 mb--50">
+                                                <div class="ShoppingYar-product">
+                                                    <div class="product-inner">
+                                                        <figure class="product-image">
+                                                            <a href="{{ product.get_absolute_url }}">
+                                                                <img src="{{ product.cover.url }}"
+                                                                     alt="Products">
+                                                            </a>
+                                                            <div class="ShoppingYar-product-action">
+                                                                <div class="product-action d-flex">
+                                                                    <a href="#" class="action-btn">
+                                                                        <i class="flaticon flaticon-like"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </figure>
+                                                        <div class="product-info">
+                                                            <h3 class="product-title mb--15">
+                                                                <a href="{{ product.get_absolute_url }}">{{ product.title }}</a>
+                                                            </h3>
+                                                            <div class="product-price-wrapper mb--30">
+                                                                <span class="money">{{ product.price }} تومان</span>
+                                                            </div>
+                                                            <a href="cart.html"
+                                                               class="btn btn-small btn-bg-sand btn-color-dark px-3">اضافه
+                                                                کردن به سبد خرید</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+
+                                    </div>
+                                </div>
+                            </div>
+                            <nav class="pagination-wrap mt--35 mt-md--25 pb-5" aria-label="Page navigation example" dir="ltr">
+                                <ul class="pagination">
+                                    {% if page_obj.has_previous %}
+                                        <li>
+                                            <a  class="prev page-number" href="?page={{ page_obj.previous_page_number }}"
+                                               aria-label="Previous"><i class="fa fa-angle-double-left"></i>
+                                            </a>
+                                        </li>
+                                        <li><a class="page-number" href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a></li>
+                                    {% endif %}
+                                    <li><span class="current page-number">{{ page_obj.number }}</span></li>
+                                    {% if page_obj.has_next %}
+                                        <li><a class="page-number" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a></li>
+                                        <li class="page-item">
+                                            <a class="next page-number" href="?page={{ page_obj.next_page_number }}"
+                                               aria-label="Next"><i class="fa fa-angle-double-right"></i>
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Main Content Wrapper Start -->
+
+    </div>
+    <!-- Main Wrapper End -->
+
+{% endblock %}

@@ -8,7 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.paginator import Paginator
 
-from .models import Product, Comments
+from .models import Product, Comments, Category
 from .forms import CommentsForm
 
 
@@ -79,3 +79,11 @@ class SearchResultsView(generic.ListView):
     def get_queryset(self):
         query = self.request.GET.get('q')
         return Product.objects.filter(title__icontains=query)
+
+
+def category_list_view(request, slug):
+    category = get_object_or_404(Category, slug=slug)
+    context = {
+        'category': category,
+    }
+    return render(request, 'products/category_list_view.html', context)

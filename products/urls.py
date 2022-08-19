@@ -8,5 +8,5 @@ urlpatterns = [
     re_path(r'(?P<slug>[-\w]*)/$', views.product_details_view, name='product_details_view'),
     path('comments/<str:slug>', views.CommentCreateView.as_view(), name='comment_create_view'),
     path('search/', views.SearchResultsView.as_view(), name='search_results'),
-    # path('category/<str:pk>', views.CategoryListView.as_view(), name='category_list_view'),
+    re_path(r'category/(?P<slug>[-\w]*)/$', views.category_list_view, name='category-list_view'),
 ]
