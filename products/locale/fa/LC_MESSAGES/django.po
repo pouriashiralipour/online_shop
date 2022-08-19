@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-19 15:50+0430\n"
+"POT-Creation-Date: 2022-08-19 15:58+0430\n"
 "PO-Revision-Date: 2022-08-10 20:30+0430\n"
 "Last-Translator:   <impoush@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,6 +15,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.9.8\n"
+
+#: .\admin.py:15
+msgid "category_display"
+msgstr "دسته بندی ها"
 
 #: .\apps.py:8 .\models.py:43
 msgid "products"

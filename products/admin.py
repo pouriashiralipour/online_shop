@@ -21,7 +21,7 @@ class ProductAdmin(admin.ModelAdmin):
     ]
 
     def category_display(self, obj):
-        return ", ".join([category.title for category in obj.category.all()])
+        return " ، ".join([category.title for category in obj.category.all()])
 
 
 @admin.register(Comments)
