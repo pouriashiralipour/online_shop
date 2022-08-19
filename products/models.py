@@ -1,3 +1,4 @@
+import random
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth import get_user_model
@@ -12,7 +13,7 @@ class Product(models.Model):
         ('nav', 'not_available'),
     )
     title = models.CharField(max_length=250)
-    slug = models.SlugField(max_length=250, null=True, blank=True)
+    slug = models.SlugField(unique=True, max_length=250, null=True, blank=True)
     description = models.TextField()
     price = models.PositiveIntegerField()
     active = models.BooleanField(default=True)
@@ -31,11 +32,28 @@ class Product(models.Model):
         super().save(*args, **kwargs)
 
 
+def slugify_instance_title(instance, save=False, new_slug=None):
+    if new_slug is not None:
+        slug = new_slug
+    else:
+        slug = slugify(instance.title)
+    Klass = instance.__class__
+    qs = Klass.objects.filter(slug=slug).exclude(id=instance.id)
+    if qs.exists():
+        rand_int = random.randint(300_000, 500_000)
+        slug = f"{slug}-{rand_int}"
+        return slugify_instance_title(instance, save=save, new_slug=slug)
+    instance.slug = slug
+    if save:
+        instance.save()
+    return instance
+
+
 def products_pre_save(sender, instance, *args, **kwargs):
     print('pre_save')
-    print(sender, instance)
+    # print(sender, instance)
     if instance.slug is None:
-        instance.slug = slugify(instance.title)
+        slugify_instance_title(instance, save=False)
 
 
 pre_save.connect(products_pre_save, sender=Product)
@@ -43,10 +61,9 @@ pre_save.connect(products_pre_save, sender=Product)
 
 def products_post_save(sender, instance, created, *args, **kwargs):
     print('post_save')
-    print(args, kwargs)
+    # print(args, kwargs)
     if created:
-        instance.slug = slugify(instance.title)
-        instance.save()
+        slugify_instance_title(instance, save=True)
 
 
 post_save.connect(products_post_save, sender=Product)

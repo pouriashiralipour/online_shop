@@ -11,7 +11,7 @@ class CommentInline(admin.StackedInline):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['title', 'price', 'status', 'active', ]
+    list_display = ['title', 'slug', 'price', 'status', 'active', ]
     ordering = ('datetime_created', )
     search_fields = ('title',)
     list_per_page = 25
