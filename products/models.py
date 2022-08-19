@@ -49,6 +49,9 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse('product_details_view', args=[self.slug])
 
+    def category_published(self):
+        return self.category.filter(status=True)
+
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 

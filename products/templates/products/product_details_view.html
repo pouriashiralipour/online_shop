@@ -61,8 +61,8 @@
                                 </div>
                                 <div class="product-footer-meta mt-5 pt-5">
                                     <p><span class="m-0">{% translate 'categoreis' %}:</span>
-                                        {% for cat in product.category.all %}
-                                            <a href="shop.html"> {{ cat.title }} </a>,
+                                        {% for cat in product.category_published.all %}
+                                            <a href="{% url 'category-list_view' cat.slug %}"> {{ cat.title }} </a>,
                                         {% endfor %}
                                     </p>
                                 </div>
