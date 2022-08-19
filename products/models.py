@@ -2,13 +2,8 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
-
-
-class Category(models.Model):
-    name = models.CharField(max_length=250)
-
-    def __str__(self):
-        return self.name
+from django.utils.text import slugify
+from django.db.models.signals import pre_save, post_save
 
 
 class Product(models.Model):
@@ -17,7 +12,7 @@ class Product(models.Model):
         ('nav', 'not_available'),
     )
     title = models.CharField(max_length=250)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+    slug = models.SlugField(max_length=250, null=True, blank=True)
     description = models.TextField()
     price = models.PositiveIntegerField()
     active = models.BooleanField(default=True)
@@ -31,6 +26,30 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('product_details_view', args=[self.id])
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+
+def products_pre_save(sender, instance, *args, **kwargs):
+    print('pre_save')
+    print(sender, instance)
+    if instance.slug is None:
+        instance.slug = slugify(instance.title)
+
+
+pre_save.connect(products_pre_save, sender=Product)
+
+
+def products_post_save(sender, instance, created, *args, **kwargs):
+    print('post_save')
+    print(args, kwargs)
+    if created:
+        instance.slug = slugify(instance.title)
+        instance.save()
+
+
+post_save.connect(products_post_save, sender=Product)
 
 
 class CustomActiveCommentManager(models.Manager):
@@ -69,4 +88,3 @@ class Comments(models.Model):
 
     def get_absolute_url(self):
         return reverse('product_details_view', args=[self.product.id])
-

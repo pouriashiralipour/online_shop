@@ -1,11 +1,6 @@
 from django.contrib import admin
 
-from .models import Product, Comments, Category
-
-
-@admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['name', ]
+from .models import Product, Comments
 
 
 class CommentInline(admin.StackedInline):
