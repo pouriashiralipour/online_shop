@@ -7,13 +7,28 @@ from django.utils.text import slugify
 from django.db.models.signals import pre_save, post_save
 
 
+class Category(models.Model):
+    title = models.CharField(max_length=250, verbose_name=_('title'))
+    slug = models.SlugField(unique=True, allow_unicode=True, null=True, blank=True, verbose_name=_('slug'))
+    status = models.BooleanField(default=True, verbose_name=_('status'))
+    position = models.IntegerField(verbose_name=_('position'))
+
+    class Meta:
+        verbose_name = _('category')
+        verbose_name_plural = _("categories")
+        ordering = ['position']
+
+    def __str__(self):
+        return self.title
+
+
 class Product(models.Model):
     STATUS_CHOICES = (
         ('ava', 'available'),
         ('nav', 'not_available'),
     )
-    title = models.CharField(max_length=250)
-    slug = models.SlugField(unique=True, allow_unicode=True, null=True, blank=True)
+    title = models.CharField(max_length=250, verbose_name=_('title'))
+    slug = models.SlugField(unique=True, allow_unicode=True, null=True, blank=True, verbose_name=_('slug'))
     description = models.TextField()
     price = models.PositiveIntegerField()
     active = models.BooleanField(default=True)
