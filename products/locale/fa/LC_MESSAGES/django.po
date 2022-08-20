@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-20 08:44+0430\n"
-"PO-Revision-Date: 2022-08-10 20:30+0430\n"
+"POT-Creation-Date: 2022-08-20 12:10+0430\n"
+"PO-Revision-Date: 2022-08-20 12:12+0430\n"
 "Last-Translator:   <impoush@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.9.8\n"
 
-#: .\apps.py:8 .\models.py:53
+#: .\admin.py:15
+msgid "category_display"
+msgstr "دسته بندی ها"
+
+#: .\apps.py:8 .\models.py:52
 msgid "products"
 msgstr "محصولات"
 
@@ -24,83 +28,79 @@ msgstr "محصولات"
 msgid "parent"
 msgstr "والد"
 
-#: .\models.py:21 .\models.py:40
+#: .\models.py:21 .\models.py:39
 msgid "title"
 msgstr "عنوان"
 
-#: .\models.py:22 .\models.py:41
+#: .\models.py:22 .\models.py:40
 msgid "slug"
 msgstr "آدرس"
 
-#: .\models.py:23 .\models.py:46
+#: .\models.py:23 .\models.py:45
 msgid "status"
 msgstr "وضعیت"
 
-#: .\models.py:24
-msgid "position"
-msgstr "پوزیشن"
-
-#: .\models.py:27 .\models.py:42
+#: .\models.py:26 .\models.py:41
 msgid "category"
 msgstr "دسته بندی"
 
-#: .\models.py:28
+#: .\models.py:27
 msgid "categories"
 msgstr "دسته بندی ها"
 
-#: .\models.py:37
+#: .\models.py:36
 msgid "available"
 msgstr "موجود"
 
-#: .\models.py:38
+#: .\models.py:37
 msgid "not_available"
 msgstr "نا موجود"
 
-#: .\models.py:43
+#: .\models.py:42
 msgid "description"
 msgstr "توضیحات"
 
-#: .\models.py:44
+#: .\models.py:43
 msgid "price"
 msgstr "قیمت"
 
-#: .\models.py:45
+#: .\models.py:44
 msgid "active"
 msgstr "فعال"
 
-#: .\models.py:47
+#: .\models.py:46
 msgid "cover"
 msgstr "کاور"
 
-#: .\models.py:48 .\models.py:131
+#: .\models.py:47 .\models.py:131
 msgid "datetime_created"
 msgstr "تاریخ ساخت"
 
-#: .\models.py:49 .\models.py:132
+#: .\models.py:48 .\models.py:132
 msgid "datetime_modified"
 msgstr "تاریخ اصلاح"
 
-#: .\models.py:52 .\models.py:122
+#: .\models.py:51 .\models.py:121
 msgid "product"
 msgstr "محصول"
 
-#: .\models.py:116
+#: .\models.py:115
 msgid "Very Bad"
 msgstr "خیلی بد"
 
-#: .\models.py:117
+#: .\models.py:116
 msgid "Bad"
 msgstr "بد"
 
-#: .\models.py:118
+#: .\models.py:117
 msgid "Normal"
 msgstr "متوسط"
 
-#: .\models.py:119
+#: .\models.py:118
 msgid "Good"
 msgstr "خوب"
 
-#: .\models.py:120
+#: .\models.py:119
 msgid "Perfect"
 msgstr "عالی"
 
@@ -124,56 +124,56 @@ msgstr "این محصول را پیشنهاد می کنم"
 msgid "comment"
 msgstr "نظرات"
 
-#: .\models.py:145 .\templates\products\product_details_view.html:86
+#: .\models.py:145 .\templates\products\product_details_view.html:85
 msgid "comments"
 msgstr "نظرات"
 
-#: .\templates\products\product_details_view.html:11
+#: .\templates\products\product_details_view.html:10
 msgid "DetailView"
 msgstr "لیست محصولات"
 
-#: .\templates\products\product_details_view.html:23
+#: .\templates\products\product_details_view.html:22
 msgid "Products details of"
 msgstr "توضیحات محصول"
 
-#: .\templates\products\product_details_view.html:46
-#: .\templates\products\product_details_view.html:48
+#: .\templates\products\product_details_view.html:45
+#: .\templates\products\product_details_view.html:47
 msgid "$"
 msgstr "تومان"
 
-#: .\templates\products\product_details_view.html:59
+#: .\templates\products\product_details_view.html:58
 msgid "Add to cart"
 msgstr "اضافه به سبد خرید"
 
-#: .\templates\products\product_details_view.html:63
+#: .\templates\products\product_details_view.html:62
 msgid "categoreis"
 msgstr "دسته بندی ها"
 
-#: .\templates\products\product_details_view.html:78
+#: .\templates\products\product_details_view.html:77
 msgid "Products Details"
 msgstr "توضیحات محصول"
 
-#: .\templates\products\product_details_view.html:112
+#: .\templates\products\product_details_view.html:111
 msgid "black"
 msgstr "مشکی"
 
-#: .\templates\products\product_details_view.html:113
+#: .\templates\products\product_details_view.html:112
 msgid "green"
 msgstr "سبز"
 
-#: .\templates\products\product_details_view.html:114
+#: .\templates\products\product_details_view.html:113
 msgid "red"
 msgstr "قرمز"
 
-#: .\templates\products\product_details_view.html:115
+#: .\templates\products\product_details_view.html:114
 msgid "orange"
 msgstr "نارنجی"
 
-#: .\templates\products\product_details_view.html:173
+#: .\templates\products\product_details_view.html:172
 msgid "Write your comment"
 msgstr "نظر خود را بنویسید"
 
-#: .\templates\products\product_details_view.html:184
+#: .\templates\products\product_details_view.html:183
 msgid "send"
 msgstr "ارسال"
 
@@ -187,8 +187,8 @@ msgid ""
 "Sabbath after review"
 msgstr "کامنت شما با موفقیت ثبت شد و پس از بررسی در سایت قرار خواهد گرفت "
 
-#~ msgid "category_display"
-#~ msgstr "دسته بندی ها"
+#~ msgid "position"
+#~ msgstr "پوزیشن"
 
 #~ msgid "dress"
 #~ msgstr "لباس"

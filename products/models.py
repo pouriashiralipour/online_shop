@@ -5,6 +5,7 @@ from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
 from django.utils.text import slugify
 from django.db.models.signals import pre_save, post_save
+from django.utils.html import format_html
 
 from .templatetags import utilis
 
@@ -60,6 +61,9 @@ class Product(models.Model):
 
     def category_published(self):
         return self.category.filter(status=True)
+
+    def cover_img(self):
+        return format_html("<img width=60 src='{}'>".format(self.cover.url))
 
     # def jalali_published(self):
     #     return utilis.translate_persian(self.datetime_created)
