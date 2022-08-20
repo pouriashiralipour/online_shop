@@ -16,7 +16,7 @@ class Category(models.Model):
         null=True, blank=True,
         verbose_name=_('parent'),
         on_delete=models.SET_NULL,
-        related_name='child'
+        related_name='child',
     )
     title = models.CharField(max_length=250, verbose_name=_('title'))
     slug = models.SlugField(unique=True, allow_unicode=True, null=True, blank=True, verbose_name=_('slug'))
