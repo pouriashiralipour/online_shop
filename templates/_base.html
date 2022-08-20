@@ -12,7 +12,9 @@
     <!-- Favicons -->
     <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{% static 'img/icon.png' %}">
-
+    {% block static %}
+    
+    {% endblock %}
     <!-- ************************* CSS Files ************************* -->
 
     <link rel="stylesheet" href="{% static 'css/_base.css' %}">

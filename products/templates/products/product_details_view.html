@@ -1,5 +1,4 @@
 {% extends '_base.html' %}
-{% load humanize %}
 {% load jalali_tags %}
 {% load comment_tags %}
 {% load i18n %}
@@ -45,7 +44,7 @@
                                 <div class="my-5 py-5 product-price-wrapper mb--25">
                                     <span class="money text-success">۱۴۸,۰۰۰ {% translate '$' %}</span>
                                     <span class="price-separator">-</span>
-                                    <span class="money old-price text-danger">{{ product.price|intcomma }} {% translate '$' %}</span>
+                                    <span class="money old-price text-danger">{{ product.price }} {% translate '$' %}</span>
                                 </div>
                                 <div class="product-action d-flex align-items-sm-center align-content-center mb--30">
                                     <div class="quantity-wrapper d-flex justify-content-start">
