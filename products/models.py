@@ -54,8 +54,8 @@ class Product(models.Model):
     def category_published(self):
         return self.category.filter(status=True)
 
-    def jalali_published(self):
-        return utilis.translate_persian(self.datetime_created)
+    # def jalali_published(self):
+    #     return utilis.translate_persian(self.datetime_created)
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
