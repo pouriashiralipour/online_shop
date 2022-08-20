@@ -4,8 +4,8 @@ from . import views
 
 urlpatterns = [
     path('', views.ProductListView.as_view(), name='product_list_view'),
-    path('<str:slug>/', views.product_details_view, name='product_details_view'),
-    re_path(r'(?P<slug>[-\w]*)/$', views.product_details_view, name='product_details_view'),
+    # path('<str:slug>/', views.product_details_view, name='product_details_view'),
+    re_path(r'(?P<slug>[-\w]*)/$', views.ProductDetailsView.as_view(), name='product_details_view'),
     path('comments/<str:slug>', views.CommentCreateView.as_view(), name='comment_create_view'),
     path('search/', views.SearchResultsView.as_view(), name='search_results'),
     re_path(r'category/(?P<slug>[-\w]*)/$', views.category_list_view, name='category-list_view'),
