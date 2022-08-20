@@ -21,12 +21,11 @@ class Category(models.Model):
     title = models.CharField(max_length=250, verbose_name=_('title'))
     slug = models.SlugField(unique=True, allow_unicode=True, null=True, blank=True, verbose_name=_('slug'))
     status = models.BooleanField(default=True, verbose_name=_('status'))
-    position = models.IntegerField(verbose_name=_('position'))
 
     class Meta:
         verbose_name = _('category')
         verbose_name_plural = _("categories")
-        ordering = ['position']
+        ordering = ['parent__id']
 
     def __str__(self):
         return self.title
@@ -120,7 +119,8 @@ class Comments(models.Model):
         ('5', _('Perfect')),
     ]
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments', verbose_name=_('product'))
-    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments', default=1, verbose_name=_('author'))
+    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments', default=1,
+                               verbose_name=_('author'))
     text = models.TextField(verbose_name=_('Comment Text'))
     stars = models.CharField(
         max_length=10,

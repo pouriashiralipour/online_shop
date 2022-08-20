@@ -34,5 +34,5 @@ class CommentAdmin(admin.ModelAdmin):
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['title', 'status', 'position']
+    list_display = ['title', 'status', 'parent']
     prepopulated_fields = {'slug': ('title',)}
