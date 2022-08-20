@@ -64,6 +64,7 @@ class Product(models.Model):
 
     def cover_img(self):
         return format_html("<img width=60 src='{}'>".format(self.cover.url))
+    cover_img.short_description = _('image')
 
     # def jalali_published(self):
     #     return utilis.translate_persian(self.datetime_created)
@@ -123,8 +124,7 @@ class Comments(models.Model):
         ('5', _('Perfect')),
     ]
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments', verbose_name=_('product'))
-    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments', default=1,
-                               verbose_name=_('author'))
+    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments', default=1, verbose_name=_('author'))
     text = models.TextField(verbose_name=_('Comment Text'))
     stars = models.CharField(
         max_length=10,
@@ -134,7 +134,7 @@ class Comments(models.Model):
     )
     datetime_created = models.DateTimeField(auto_now_add=True, verbose_name=_('datetime_created'))
     datetime_modified = models.DateTimeField(auto_now=True, verbose_name=_('datetime_modified'))
-    is_active = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=True, verbose_name=_('active'))
     recommend = models.BooleanField(
         default=True,
         verbose_name=_('I suggest this product')

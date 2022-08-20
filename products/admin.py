@@ -1,7 +1,11 @@
 from django.contrib import admin
+from django.utils.translation import gettext, gettext_lazy as _
 
 from .models import Product, Comments, Category
 
+
+# def make_published(modeladmin, request, queryset):
+#     queryset.update(status='p')
 
 class CommentInline(admin.StackedInline):
     model = Comments
@@ -22,6 +26,7 @@ class ProductAdmin(admin.ModelAdmin):
 
     def category_display(self, obj):
         return " ، ".join([category.title for category in obj.category.all()])
+    category_display.short_description = _("categories")
 
 
 @admin.register(Comments)
