@@ -6,6 +6,8 @@ from django.utils.translation import gettext_lazy as _
 from django.utils.text import slugify
 from django.db.models.signals import pre_save, post_save
 
+from .templatetags import utilis
+
 
 class Category(models.Model):
     title = models.CharField(max_length=250, verbose_name=_('title'))
@@ -51,6 +53,9 @@ class Product(models.Model):
 
     def category_published(self):
         return self.category.filter(status=True)
+
+    def jalali_published(self):
+        return utilis.translate_persian(self.datetime_created)
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
