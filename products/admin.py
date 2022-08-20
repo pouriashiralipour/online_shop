@@ -1,11 +1,19 @@
 from django.contrib import admin
+from django.contrib import messages
 from django.utils.translation import gettext, gettext_lazy as _
+from django.utils.translation import ngettext
 
 from .models import Product, Comments, Category
 
 
-# def make_published(modeladmin, request, queryset):
-#     queryset.update(status='p')
+def make_published(modeladmin, request, queryset):
+    updated = queryset.update(status='ava')
+    modeladmin.message_user(request, ngettext(
+        _('%d story was successfully marked as published.'),
+        _('%d stories were successfully marked as published.'),
+        updated,
+    ) % updated, messages.SUCCESS)
+
 
 class CommentInline(admin.StackedInline):
     model = Comments
@@ -19,6 +27,7 @@ class ProductAdmin(admin.ModelAdmin):
     ordering = ('datetime_created',)
     search_fields = ('title',)
     prepopulated_fields = {'slug': ('title',)}
+    actions = [make_published]
     list_per_page = 25
     inlines = [
         CommentInline,
@@ -26,6 +35,7 @@ class ProductAdmin(admin.ModelAdmin):
 
     def category_display(self, obj):
         return " ، ".join([category.title for category in obj.category.all()])
+
     category_display.short_description = _("categories")
 
 
