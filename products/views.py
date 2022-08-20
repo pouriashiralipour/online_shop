@@ -71,10 +71,22 @@ class SearchResultsView(generic.ListView):
         return Product.objects.filter(title__icontains=query)
 
 
-def category_list_view(request, slug):
-    category = get_object_or_404(Category, slug=slug)
-    context = {
-        'category': category,
-    }
-    return render(request, 'products/category_list_view.html', context)
+# def category_list_view(request, slug):
+#     category = get_object_or_404(Category, slug=slug)
+#     context = {
+#         'category': category,
+#     }
+#     return render(request, 'products/category_list_view.html', context)
+
+class CategoryListView(generic.ListView):
+    paginate_by = 2
+    template_name = 'products/category_list_view.html'
+
+    def get_queryset(self):
+        slug = self.kwargs.get('slug')
+        category = get_object_or_404(Category.objects.filter(status=True), slug=slug)
+        return category.products.filter(active=True)
+
+    context_object_name = 'category'
+
 

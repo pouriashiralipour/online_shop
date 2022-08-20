@@ -37,8 +37,8 @@ class Product(models.Model):
         ('ava', _('available')),
         ('nav', _('not_available')),
     )
-    title = models.CharField(max_length=250, verbose_name=_('title'))
-    slug = models.SlugField(unique=True, allow_unicode=True, null=True, blank=True, verbose_name=_('slug'))
+    title = models.CharField(max_length=500, verbose_name=_('title'))
+    slug = models.SlugField(max_length=500, unique=True, allow_unicode=True, null=True, blank=True, verbose_name=_('slug'))
     category = models.ManyToManyField(Category, verbose_name=_('category'), related_name='products')
     description = models.TextField(verbose_name=_('description'))
     price = models.PositiveIntegerField(verbose_name=_('price'))
