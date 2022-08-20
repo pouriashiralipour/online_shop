@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'rosetta',
     'jalali_date',
     'django.contrib.humanize',
+    'star_ratings',
 ]
 
 USE_THOUSAND_SEPARATOR = True
