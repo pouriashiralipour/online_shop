@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'rosetta',
     'jalali_date',
+    'widget_tweaks',
 ]
 
 USE_THOUSAND_SEPARATOR = True
