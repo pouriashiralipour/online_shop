@@ -71,7 +71,7 @@ INDEX:
         35.01 - Widget List
         35.02 - Widget Color
         35.03 - Tagcloud
-        35.04 - Recent Post  
+        35.04 - Recent Post
 
     40 - Pages - Cart
     41 - Pages - Checkout
@@ -1247,6 +1247,11 @@ textarea,
     flex-basis: 100%;
     max-width: 100%;
   }
+}
+
+.form-check-input {
+  margin-top: .3rem !important;
+
 }
 
 .blog-list .blog-info {
