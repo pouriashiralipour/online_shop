@@ -22,11 +22,13 @@ class Category(models.Model):
     title = models.CharField(max_length=250, verbose_name=_('title'))
     slug = models.SlugField(unique=True, allow_unicode=True, null=True, blank=True, verbose_name=_('slug'))
     status = models.BooleanField(default=True, verbose_name=_('status'))
+    datetime_created = models.DateTimeField(auto_now_add=True, verbose_name=_('datetime_created'), null=True,
+                                            editable=True)
+    datetime_modified = models.DateTimeField(auto_now=True, verbose_name=_('datetime_modified'), null=True)
 
     class Meta:
         verbose_name = _('category')
         verbose_name_plural = _("categories")
-        ordering = ['parent__id']
 
     def __str__(self):
         return self.title

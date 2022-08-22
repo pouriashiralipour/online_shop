@@ -95,9 +95,10 @@ class CommentAdmin(admin.ModelAdmin):
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['title', 'status', 'parent']
+    list_display = ['title', 'status', 'parent', 'datetime_created']
     prepopulated_fields = {'slug': ('title',)}
     actions = ['make_de_active', 'make_active']
+    ordering = ['datetime_created']
 
     @admin.action(description=_('Selected categories are de_active'))
     def make_de_active(self, request, queryset):
