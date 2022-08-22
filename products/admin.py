@@ -6,26 +6,6 @@ from django.utils.translation import ngettext
 from .models import Product, Comments, Category
 
 
-@admin.action(description=_('Selected products are not available'))
-def make_published(modeladmin, request, queryset):
-    updated = queryset.update(status='nav')
-    modeladmin.message_user(request, ngettext(
-        _('%d story was successfully marked as published.'),
-        _('%d stories were successfully marked as published.'),
-        updated,
-    ) % updated, messages.SUCCESS)
-
-
-@admin.action(description=_('Selected products are not active'))
-def make_de_active(modeladmin, request, queryset):
-    updated = queryset.update(active=False)
-    modeladmin.message_user(request, ngettext(
-        _('%d story was successfully marked as deactivated.'),
-        _('%d stories were successfully marked as deactivated.'),
-        updated,
-    ) % updated, messages.SUCCESS)
-
-
 class CommentInline(admin.StackedInline):
     model = Comments
     fields = ['author', 'text', 'stars', 'is_active', 'recommend']
@@ -38,11 +18,47 @@ class ProductAdmin(admin.ModelAdmin):
     ordering = ('datetime_created',)
     search_fields = ('title',)
     prepopulated_fields = {'slug': ('title',)}
-    actions = [make_published, make_de_active]
+    actions = ['make_not_available', 'make_available', 'make_active', 'make_de_active']
     list_per_page = 25
     inlines = [
         CommentInline,
     ]
+
+    @admin.action(description=_('Selected products are not available'))
+    def make_not_available(self, request, queryset):
+        updated = queryset.update(status='nav')
+        self.message_user(request, ngettext(
+            _('%d story was successfully marked as not available.'),
+            _('%d stories were successfully marked as not available.'),
+            updated,
+        ) % updated, messages.SUCCESS)
+
+    @admin.action(description=_('Selected products are active'))
+    def make_active(self, request, queryset):
+        updated = queryset.update(active=True)
+        self.message_user(request, ngettext(
+            _('%d story was successfully marked as activated.'),
+            _('%d stories were successfully marked as activated.'),
+            updated,
+        ) % updated, messages.SUCCESS)
+
+    @admin.action(description=_('Selected products are de_active'))
+    def make_de_active(self, request, queryset):
+        updated = queryset.update(active=False)
+        self.message_user(request, ngettext(
+            _('%d story was successfully marked as deactivated.'),
+            _('%d stories were successfully marked as deactivated.'),
+            updated,
+        ) % updated, messages.SUCCESS)
+
+    @admin.action(description=_('Selected products are available'))
+    def make_available(self, request, queryset):
+        updated = queryset.update(status='ava')
+        self.message_user(request, ngettext(
+            _('%d story was successfully marked as available.'),
+            _('%d stories were successfully marked as available.'),
+            updated,
+        ) % updated, messages.SUCCESS)
 
     def category_display(self, obj):
         return " ، ".join([category.title for category in obj.category.all()])
@@ -56,14 +72,23 @@ class CommentAdmin(admin.ModelAdmin):
     ordering = ('datetime_created',)
     list_per_page = 25
     search_fields = ('author',)
-    actions = ['make_active']
+    actions = ['make_active', 'make_de_active']
 
     @admin.action(description=_('Selected products are active'))
     def make_active(self, request, queryset):
-        updated = queryset.update(active=False)
+        updated = queryset.update(is_active=True)
         self.message_user(request, ngettext(
             _('%d story was successfully marked as activated.'),
             _('%d stories were successfully marked as activated.'),
+            updated,
+        ) % updated, messages.SUCCESS)
+
+    @admin.action(description=_('Selected products are de_active'))
+    def make_de_active(self, request, queryset):
+        updated = queryset.update(is_active=False)
+        self.message_user(request, ngettext(
+            _('%d story was successfully marked as deactivated.'),
+            _('%d stories were successfully marked as deactivated.'),
             updated,
         ) % updated, messages.SUCCESS)
 
