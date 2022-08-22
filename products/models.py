@@ -13,6 +13,10 @@ from .templatetags import utilis
 class IPAddress(models.Model):
     ip_address = models.GenericIPAddressField(verbose_name=_('IPAddress'))
 
+    class Meta:
+        verbose_name = _('IP address')
+        verbose_name_plural = _('IP addresses')
+
 
 class Category(models.Model):
     parent = models.ForeignKey(

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-22 10:47+0430\n"
+"POT-Creation-Date: 2022-08-22 18:27+0430\n"
 "PO-Revision-Date: 2022-08-20 12:12+0430\n"
 "Last-Translator:   <impoush@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,180 +16,198 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.9.8\n"
 
-#: .\admin.py:27
+#: .\admin.py:32
 msgid "Selected products are not available"
 msgstr "از دسترس خارج کردن محصولات انتخاب شده"
 
-#: .\admin.py:31
+#: .\admin.py:36
 #, python-format
 msgid "%d story was successfully marked as not available."
 msgstr "%d  محصول با موفقیت ناموجود شد"
 
-#: .\admin.py:32
+#: .\admin.py:37
 #, python-format
 msgid "%d stories were successfully marked as not available."
 msgstr "%d  محصول با موفقیت ناموجود شدند"
 
-#: .\admin.py:36 .\admin.py:77
+#: .\admin.py:41 .\admin.py:82
 msgid "Selected products are active"
 msgstr "فعال کردن محصولات انتخاب شده"
 
-#: .\admin.py:40 .\admin.py:81
+#: .\admin.py:45 .\admin.py:86
 #, python-format
 msgid "%d story was successfully marked as activated."
 msgstr "%d  محصول با موفقیت فعال شد"
 
-#: .\admin.py:41 .\admin.py:82
+#: .\admin.py:46 .\admin.py:87
 #, python-format
 msgid "%d stories were successfully marked as activated."
 msgstr "%d  محصول با موفقیت فعال شدند"
 
-#: .\admin.py:45 .\admin.py:86
+#: .\admin.py:50 .\admin.py:91
 msgid "Selected products are de_active"
 msgstr "غیر فعال کردن محصولات انتخاب شده"
 
-#: .\admin.py:49 .\admin.py:90 .\admin.py:106 .\admin.py:115
+#: .\admin.py:54 .\admin.py:95 .\admin.py:112 .\admin.py:121
 #, python-format
 msgid "%d story was successfully marked as deactivated."
 msgstr "%d  محصول با موفقیت غیرفعال شد"
 
-#: .\admin.py:50 .\admin.py:91 .\admin.py:107 .\admin.py:116
+#: .\admin.py:55 .\admin.py:96 .\admin.py:113 .\admin.py:122
 #, python-format
 msgid "%d stories were successfully marked as deactivated."
 msgstr "%d  محصول با موفقیت غیرفعال شدند"
 
-#: .\admin.py:54
+#: .\admin.py:59
 msgid "Selected products are available"
 msgstr "در دسترس قرار دادن محصولات انتخاب شده"
 
-#: .\admin.py:58
+#: .\admin.py:63
 #, python-format
 msgid "%d story was successfully marked as available."
 msgstr "%d  محصول با موفقیت موجود شد"
 
-#: .\admin.py:59
+#: .\admin.py:64
 #, python-format
 msgid "%d stories were successfully marked as available."
 msgstr "%d  محصول با موفقیت موجود شدند"
 
-#: .\admin.py:66 .\models.py:28
+#: .\admin.py:71 .\models.py:39
 msgid "categories"
 msgstr "دسته بندی ها"
 
-#: .\admin.py:102
+#: .\admin.py:108
 msgid "Selected categories are de_active"
 msgstr "غیر فعال کردن دسته بندی های انتخاب شده"
 
-#: .\admin.py:111
-#| msgid "Selected categories are de_active"
+#: .\admin.py:117
 msgid "Selected categories are active"
 msgstr " فعال کردن دسته بندی های انتخاب شده"
 
-#: .\apps.py:8 .\models.py:53
+#: .\apps.py:8 .\models.py:65
 msgid "products"
 msgstr "محصولات"
 
+#: .\models.py:14
+#| msgid "dress"
+msgid "IPAddress"
+msgstr "نشانی IP"
+
+#: .\models.py:17
+#, fuzzy
+#| msgid "dress"
+msgid "IP address"
+msgstr "نشانی IP"
+
 #: .\models.py:18
+msgid "IP addresses"
+msgstr "نشانی IP"
+
+#: .\models.py:26
 msgid "parent"
 msgstr "والد"
 
-#: .\models.py:22 .\models.py:40
+#: .\models.py:30 .\models.py:50
 msgid "title"
 msgstr "عنوان"
 
-#: .\models.py:23 .\models.py:41
+#: .\models.py:31 .\models.py:52
 msgid "slug"
 msgstr "آدرس"
 
-#: .\models.py:24 .\models.py:46
+#: .\models.py:32 .\models.py:57
 msgid "status"
 msgstr "وضعیت"
 
-#: .\models.py:27 .\models.py:42
-msgid "category"
-msgstr "دسته بندی"
-
-#: .\models.py:37
-msgid "available"
-msgstr "موجود"
-
-#: .\models.py:38
-msgid "not_available"
-msgstr "نا موجود"
-
-#: .\models.py:43
-msgid "description"
-msgstr "توضیحات"
-
-#: .\models.py:44
-msgid "price"
-msgstr "قیمت"
-
-#: .\models.py:45 .\models.py:137
-msgid "active"
-msgstr "فعال"
-
-#: .\models.py:47
-msgid "cover"
-msgstr "کاور"
-
-#: .\models.py:48 .\models.py:135
+#: .\models.py:33 .\models.py:59 .\models.py:149
 msgid "datetime_created"
 msgstr "تاریخ ساخت"
 
-#: .\models.py:49 .\models.py:136
+#: .\models.py:35 .\models.py:60 .\models.py:150
 msgid "datetime_modified"
 msgstr "تاریخ اصلاح"
 
-#: .\models.py:52 .\models.py:126
+#: .\models.py:38 .\models.py:53
+msgid "category"
+msgstr "دسته بندی"
+
+#: .\models.py:47
+msgid "available"
+msgstr "موجود"
+
+#: .\models.py:48
+msgid "not_available"
+msgstr "نا موجود"
+
+#: .\models.py:54
+msgid "description"
+msgstr "توضیحات"
+
+#: .\models.py:55
+msgid "price"
+msgstr "قیمت"
+
+#: .\models.py:56 .\models.py:151
+msgid "active"
+msgstr "فعال"
+
+#: .\models.py:58
+msgid "cover"
+msgstr "کاور"
+
+#: .\models.py:61
+msgid "hits"
+msgstr ""
+
+#: .\models.py:64 .\models.py:139
 msgid "product"
 msgstr "محصول"
 
-#: .\models.py:67
+#: .\models.py:80
 msgid "image"
 msgstr "عکس"
 
-#: .\models.py:120
+#: .\models.py:133
 msgid "Very Bad"
 msgstr "خیلی بد"
 
-#: .\models.py:121
+#: .\models.py:134
 msgid "Bad"
 msgstr "بد"
 
-#: .\models.py:122
+#: .\models.py:135
 msgid "Normal"
 msgstr "متوسط"
 
-#: .\models.py:123
+#: .\models.py:136
 msgid "Good"
 msgstr "خوب"
 
-#: .\models.py:124
+#: .\models.py:137
 msgid "Perfect"
 msgstr "عالی"
 
-#: .\models.py:127
+#: .\models.py:141
 msgid "author"
 msgstr "نویسنده"
 
-#: .\models.py:128
+#: .\models.py:142
 msgid "Comment Text"
 msgstr "متن نظر"
 
-#: .\models.py:133
+#: .\models.py:147
 msgid "What is your star?"
 msgstr "امتیاز شما به این محصول"
 
-#: .\models.py:140
+#: .\models.py:154
 msgid "I suggest this product"
 msgstr "این محصول را پیشنهاد می کنم"
 
-#: .\models.py:148
+#: .\models.py:162
 msgid "comment"
 msgstr "نظرات"
 
-#: .\models.py:149 .\templates\products\product_details_view.html:85
+#: .\models.py:163 .\templates\products\product_details_view.html:85
 msgid "comments"
 msgstr "نظرات"
 
@@ -257,9 +275,6 @@ msgstr "کامنت شما با موفقیت ثبت شد و پس از بررسی 
 
 #~ msgid "position"
 #~ msgstr "پوزیشن"
-
-#~ msgid "dress"
-#~ msgstr "لباس"
 
 #~ msgid "worm"
 #~ msgstr "گرم"

@@ -14,7 +14,6 @@ import os.path
 from django.contrib.messages import constants as message
 from pathlib import Path
 from environs import Env
-
 # for environment variables
 env = Env()
 env.read_env()
@@ -85,6 +84,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'products.middleware.GetIPAddressMiddleWare',
 ]
 
 ROOT_URLCONF = 'config.urls'

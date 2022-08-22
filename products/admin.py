@@ -3,7 +3,12 @@ from django.contrib import messages
 from django.utils.translation import gettext, gettext_lazy as _
 from django.utils.translation import ngettext
 
-from .models import Product, Comments, Category
+from .models import Product, Comments, Category, IPAddress
+
+
+@admin.register(IPAddress)
+class IPAddressAdmin(admin.ModelAdmin):
+    list_display = ['ip_address']
 
 
 class CommentInline(admin.StackedInline):
