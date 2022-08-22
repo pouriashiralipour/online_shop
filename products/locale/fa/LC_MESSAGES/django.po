@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-22 09:51+0430\n"
+"POT-Creation-Date: 2022-08-22 10:47+0430\n"
 "PO-Revision-Date: 2022-08-20 12:12+0430\n"
 "Last-Translator:   <impoush@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: .\admin.py:27
 msgid "Selected products are not available"
-msgstr "محصولات انتخاب شده موجود نباشند"
+msgstr "از دسترس خارج کردن محصولات انتخاب شده"
 
 #: .\admin.py:31
 #, python-format
@@ -32,7 +32,7 @@ msgstr "%d  محصول با موفقیت ناموجود شدند"
 
 #: .\admin.py:36 .\admin.py:77
 msgid "Selected products are active"
-msgstr "محصولات انتخاب شده فعال باشند"
+msgstr "فعال کردن محصولات انتخاب شده"
 
 #: .\admin.py:40 .\admin.py:81
 #, python-format
@@ -44,23 +44,23 @@ msgstr "%d  محصول با موفقیت فعال شد"
 msgid "%d stories were successfully marked as activated."
 msgstr "%d  محصول با موفقیت فعال شدند"
 
-#: .\admin.py:45 .\admin.py:86 .\admin.py:102
+#: .\admin.py:45 .\admin.py:86
 msgid "Selected products are de_active"
-msgstr "محصولات انتخاب شده فعال نباشند"
+msgstr "غیر فعال کردن محصولات انتخاب شده"
 
-#: .\admin.py:49 .\admin.py:90 .\admin.py:106
+#: .\admin.py:49 .\admin.py:90 .\admin.py:106 .\admin.py:115
 #, python-format
 msgid "%d story was successfully marked as deactivated."
 msgstr "%d  محصول با موفقیت غیرفعال شد"
 
-#: .\admin.py:50 .\admin.py:91 .\admin.py:107
+#: .\admin.py:50 .\admin.py:91 .\admin.py:107 .\admin.py:116
 #, python-format
 msgid "%d stories were successfully marked as deactivated."
 msgstr "%d  محصول با موفقیت غیرفعال شدند"
 
 #: .\admin.py:54
 msgid "Selected products are available"
-msgstr "محصولات انتخاب شده موجود باشند"
+msgstr "در دسترس قرار دادن محصولات انتخاب شده"
 
 #: .\admin.py:58
 #, python-format
@@ -75,6 +75,15 @@ msgstr "%d  محصول با موفقیت موجود شدند"
 #: .\admin.py:66 .\models.py:28
 msgid "categories"
 msgstr "دسته بندی ها"
+
+#: .\admin.py:102
+msgid "Selected categories are de_active"
+msgstr "غیر فعال کردن دسته بندی های انتخاب شده"
+
+#: .\admin.py:111
+#| msgid "Selected categories are de_active"
+msgid "Selected categories are active"
+msgstr " فعال کردن دسته بندی های انتخاب شده"
 
 #: .\apps.py:8 .\models.py:53
 msgid "products"

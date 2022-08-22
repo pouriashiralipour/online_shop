@@ -97,11 +97,20 @@ class CommentAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['title', 'status', 'parent']
     prepopulated_fields = {'slug': ('title',)}
-    actions = ['make_de_active']
+    actions = ['make_de_active', 'make_active']
 
-    @admin.action(description=_('Selected products are de_active'))
+    @admin.action(description=_('Selected categories are de_active'))
     def make_de_active(self, request, queryset):
         updated = queryset.update(status=False)
+        self.message_user(request, ngettext(
+            _('%d story was successfully marked as deactivated.'),
+            _('%d stories were successfully marked as deactivated.'),
+            updated,
+        ) % updated, messages.SUCCESS)
+
+    @admin.action(description=_('Selected categories are active'))
+    def make_active(self, request, queryset):
+        updated = queryset.update(status=True)
         self.message_user(request, ngettext(
             _('%d story was successfully marked as deactivated.'),
             _('%d stories were successfully marked as deactivated.'),
