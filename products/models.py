@@ -10,6 +10,10 @@ from django.utils.html import format_html
 from .templatetags import utilis
 
 
+class IPAddress(models.Model):
+    ip_address = models.GenericIPAddressField(verbose_name=_('IPAddress'))
+
+
 class Category(models.Model):
     parent = models.ForeignKey(
         'self',
@@ -40,7 +44,8 @@ class Product(models.Model):
         ('nav', _('not_available')),
     )
     title = models.CharField(max_length=500, verbose_name=_('title'))
-    slug = models.SlugField(max_length=500, unique=True, allow_unicode=True, null=True, blank=True, verbose_name=_('slug'))
+    slug = models.SlugField(max_length=500, unique=True, allow_unicode=True, null=True, blank=True,
+                            verbose_name=_('slug'))
     category = models.ManyToManyField(Category, verbose_name=_('category'), related_name='products')
     description = models.TextField(verbose_name=_('description'))
     price = models.PositiveIntegerField(verbose_name=_('price'))
@@ -49,6 +54,7 @@ class Product(models.Model):
     cover = models.ImageField(upload_to='covers/', blank=True, verbose_name=_('cover'))
     datetime_created = models.DateTimeField(auto_now_add=True, verbose_name=_('datetime_created'))
     datetime_modified = models.DateTimeField(auto_now=True, verbose_name=_('datetime_modified'))
+    hits = models.ManyToManyField(IPAddress, verbose_name=_('hits'), related_name='hits', blank=True)
 
     class Meta:
         verbose_name = _('product')
@@ -66,6 +72,7 @@ class Product(models.Model):
 
     def cover_img(self):
         return format_html("<img width=60 src='{}'>".format(self.cover.url))
+
     cover_img.short_description = _('image')
 
     # def jalali_published(self):
@@ -126,7 +133,8 @@ class Comments(models.Model):
         ('5', _('Perfect')),
     ]
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments', verbose_name=_('product'))
-    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments', default=1, verbose_name=_('author'))
+    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments', default=1,
+                               verbose_name=_('author'))
     text = models.TextField(verbose_name=_('Comment Text'))
     stars = models.CharField(
         max_length=10,
