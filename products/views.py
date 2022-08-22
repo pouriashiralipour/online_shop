@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
-from django.core.paginator import Paginator
+from .middleware import GetIPAddressMiddleWare
 
 from .models import Product, Comments, Category
 from .forms import CommentsForm
@@ -35,7 +35,13 @@ class ProductListView(generic.ListView):
 class ProductDetailsView(generic.DetailView):
     def get_object(self, queryset=None):
         slug = self.kwargs.get('slug')
-        return get_object_or_404(Product, slug=slug)
+        product = get_object_or_404(Product, slug=slug)
+        ip_address = self.request.user.ip_address
+        if ip_address not in product.hits.all():
+            product.hits.add(ip_address)
+
+        return product
+
     template_name = 'products/product_details_view.html'
     # model = Product
     context_object_name = 'product'
@@ -88,5 +94,3 @@ class CategoryListView(generic.ListView):
         return category.products.filter(active=True)
 
     context_object_name = 'category'
-
-
