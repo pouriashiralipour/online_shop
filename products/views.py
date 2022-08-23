@@ -74,7 +74,9 @@ class SearchResultsView(generic.ListView):
 
     def get_queryset(self):
         query = self.request.GET.get('q')
-        return Product.objects.filter(title__icontains=query)
+        return Product.objects.filter(
+            Q(title__icontains=query) | Q(category__title__icontains=query)
+        )
 
 
 # def category_list_view(request, slug):

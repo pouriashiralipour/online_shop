@@ -18,11 +18,14 @@ from django.conf import settings
 from django.urls import path, include
 from django.conf.urls.static import static
 
+from products import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('pages.urls')),
     path('accounts/', include('allauth.urls')),
     path('products/', include('products.urls')),
+    path('search/', views.SearchResultsView.as_view(), name='search_results'),
 
     # rosetta app
     path('rosetta/', include('rosetta.urls')),
