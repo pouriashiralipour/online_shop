@@ -19,8 +19,7 @@ class CommentInline(admin.StackedInline):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['title', 'cover_img', 'slug', 'category_display', 'price', 'status', 'active', ]
-    ordering = ('datetime_created',)
+    list_display = ['title', 'cover_img', 'slug', 'category_display', 'price', 'status', 'active', 'datetime_created']
     search_fields = ('title',)
     prepopulated_fields = {'slug': ('title',)}
     actions = ['make_not_available', 'make_available', 'make_active', 'make_de_active']

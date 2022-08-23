@@ -16,7 +16,7 @@ class ProductListView(generic.ListView):
     template_name = 'products/product_list_view.html'
     # model = Product
     paginate_by = 8
-    queryset = Product.objects.filter(active=True)
+    queryset = Product.objects.filter(active=True).order_by('-datetime_created')
     context_object_name = 'products'
 
 

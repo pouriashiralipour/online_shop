@@ -63,7 +63,7 @@ class Product(models.Model):
     class Meta:
         verbose_name = _('product')
         verbose_name_plural = _('products')
-        ordering = ['datetime_created']
+        ordering = ['-datetime_created']
 
     def __str__(self):
         return self.title
