@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'rosetta',
     'jalali_date',
     'widget_tweaks',
+    'import_export',
 ]
 
 USE_THOUSAND_SEPARATOR = True
@@ -201,3 +202,6 @@ MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
 MESSAGE_TAGS = {
     message.ERROR: 'danger',
 }
+
+# for import_export
+IMPORT_EXPORT_USE_TRANSACTIONS = True

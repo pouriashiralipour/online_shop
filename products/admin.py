@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.contrib import messages
 from django.utils.translation import gettext, gettext_lazy as _
 from django.utils.translation import ngettext
+from import_export.admin import ImportExportModelAdmin
 
 from .models import Product, Comments, Category, IPAddress
 
@@ -18,7 +19,7 @@ class CommentInline(admin.StackedInline):
 
 
 @admin.register(Product)
-class ProductAdmin(admin.ModelAdmin):
+class ProductAdmin(ImportExportModelAdmin):
     list_display = ['title', 'cover_img', 'slug', 'category_display', 'price', 'status', 'active', 'datetime_created']
     search_fields = ('title',)
     prepopulated_fields = {'slug': ('title',)}
