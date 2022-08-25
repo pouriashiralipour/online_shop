@@ -53,10 +53,6 @@
                                 </div>
 {#                                <div class="product-action d-flex align-items-sm-center align-content-center mb--30">#}
 {#                                    <div class="quantity-wrapper d-flex justify-content-start">#}
-{#                                        <div class="quantity">#}
-{#                                            <input type="number" class="quantity-input" name="qty" id="qty" value="1"#}
-{#                                                   min="1">#}
-{#                                        </div>#}
 {#                                    </div>#}
 {#                                    <button type="button" class="btn btn-small btn-bg-red btn-color-white btn-hover-2"#}
 {#                                            onclick="window.location.href='cart.html'">#}
@@ -64,7 +60,11 @@
 {#                                    </button>#}
                                     <form action="{% url 'cart:add_cart' product.id %}" method="POST">
                                         {% csrf_token %}
-                                        {{ add_to_cart_form|crispy}}
+{#                                        {{ add_to_cart_form|crispy}}#}
+                                        <div class="quantity">
+                                            <input type="number" class="quantity-input" name="quantity" id="qty" value="1"
+                                                   min="1" max="30">
+                                        </div>
                                         <button class="btn btn-small btn-bg-red btn-color-white btn-hover-2" type="submit">
                                             {% trans 'Add to cart' %}
                                         </button>
