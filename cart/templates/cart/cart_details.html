@@ -13,25 +13,25 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 mb-md--50">
-                        <form class="cart-form" action="#">
-                            <div class="row no-gutters">
-                                <div class="col-12">
-                                    <div class="table-content table-responsive">
-                                        <table class="table text-center">
-                                            <thead>
+                        <div class="row no-gutters">
+                            <div class="col-12">
+                                <div class="table-content table-responsive">
+                                    <table class="table text-center">
+                                        <thead>
+                                        <tr>
+                                            <th>&nbsp;</th>
+                                            <th>عکس محصول</th>
+                                            <th class="text-left">نام محصول</th>
+                                            <th>قیمت</th>
+                                            <th>مقدار</th>
+                                            <th>مجموع</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for product in cart %}
                                             <tr>
-                                                <th>&nbsp;</th>
-                                                <th>عکس محصول</th>
-                                                <th class="text-left">نام محصول</th>
-                                                <th>قیمت</th>
-                                                <th>مقدار</th>
-                                                <th>مجموع</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                           {% for product in cart %}
-                                             <tr>
-                                                <td class="product-remove text-left"><a href="{% url 'cart:remove_cart' product.product_obj.id %}"><i
+                                                <td class="product-remove text-left"><a
+                                                        href="{% url 'cart:remove_cart' product.product_obj.id %}"><i
                                                         class="flaticon flaticon-cross"></i></a></td>
                                                 <td class="product-thumbnail text-left">
                                                     <img src="{{ product.product_obj.cover.url }}"
@@ -48,11 +48,18 @@
                                                             </span>
                                                 </td>
                                                 <td class="product-quantity">
-                                                    <div class="quantity">
-                                                        <input type="number" class="quantity-input" name="qty"
-                                                               id="qty-1"
-                                                               value="{{ product.quantity }}" min="1">
-                                                    </div>
+                                                    <form action="{% url 'cart:add_cart' product.product_obj.id %}"
+                                                          method="POST">
+                                                        {% csrf_token %}
+                                                        <div class="quantity">
+                                                            <input type="number" class="quantity-input" name="quantity"
+                                                                   id="qty-1"
+                                                                   value="{{ product.quantity }}" min="1">
+
+                                                        </div>
+                                                        {{ product.product_quantity_form.inplace }}
+                                                        <button class="btn-submit" type="submit">بروز رسانی</button>
+                                                    </form>
                                                 </td>
                                                 <td class="product-total-price">
                                                             <span class="product-price-wrapper">
@@ -60,19 +67,19 @@
                                                             </span>
                                                 </td>
                                             </tr>
-                                           {% endfor %}
+                                        {% endfor %}
 
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-                            <div class="row no-gutters border-top pt--20 mt--20">
-                                <div class="col-sm-6 text-sm-right">
-                                    <button type="submit" class="cart-form__btn">خالی کردن سبد خرید</button>
-                                </div>
+                        </div>
+                        <div class="row no-gutters border-top pt--20 mt--20">
+                            <div class="col-sm-6 text-sm-right">
+                                <button type="submit" class="cart-form__btn">خالی کردن سبد خرید</button>
                             </div>
-                        </form>
+                        </div>
+
                     </div>
                     <div class="col-lg-4">
                         <div class="cart-collaterals">

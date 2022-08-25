@@ -7,6 +7,13 @@ from .forms import AddToCartProductForm
 
 def cart_detail_view(request):
     cart = Cart(request)
+
+    for product in cart:
+        product['product_quantity_form'] = AddToCartProductForm(initial={
+            'quantity': product['quantity'],
+            'inplace': True,
+        })
+
     return render(request, 'cart/cart_details.html', context={'cart': cart})
 
 
@@ -32,6 +39,3 @@ def remove_from_cart_view(request, product_id):
     cart.remove(product)
 
     return redirect('cart:cart_detail')
-
-
-
