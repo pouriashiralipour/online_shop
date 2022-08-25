@@ -1,5 +1,6 @@
 from products.models import Product
 from django.contrib import messages
+from django.utils.translation import gettext, gettext_lazy as _
 
 
 class Cart:
@@ -32,7 +33,7 @@ class Cart:
         else:
             self.cart[product_id]['quantity'] += quantity
 
-        messages.success(self.request, 'Product successfully added to cart')
+        messages.success(self.request, _('Product successfully added to cart'))
 
         self.save()
 
@@ -44,6 +45,7 @@ class Cart:
 
         if product_id in self.cart:
             del self.cart[product_id]
+            messages.success(self.request, _('Product successfully removed from cart'))
             self.save()
 
     def save(self):
