@@ -6,7 +6,7 @@ class Cart:
         """
          Initialize cart
         """
-        self.request = request.user
+        self.request = request
 
         self.session = request.session
 
@@ -24,7 +24,7 @@ class Cart:
         product_id = str(product.id)
 
         if product_id not in self.cart:
-            self.cart[product_id] = {'quantity', quantity}
+            self.cart[product_id] = {'quantity': quantity}
         else:
             self.cart[product_id]['quantity'] += quantity
 
@@ -36,7 +36,7 @@ class Cart:
         """
         product_id = str(product.id)
 
-        if product_id not in self.cart:
+        if product_id in self.cart:
             del self.cart[product_id]
             self.save()
 
@@ -54,7 +54,7 @@ class Cart:
         cart = self.cart.copy()
 
         for product in products:
-            cart[str(product.id)]['products_obj'] = product
+            cart[str(product.id)]['product_obj'] = product
 
         for item in cart.values():
             yield item

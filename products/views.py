@@ -10,6 +10,7 @@ from .middleware import GetIPAddressMiddleWare
 
 from .models import Product, Comments, Category
 from .forms import CommentsForm
+from cart.forms import AddToCartProductForm
 
 
 class ProductListView(generic.ListView):
@@ -49,6 +50,7 @@ class ProductDetailsView(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['comment_from'] = CommentsForm()
+        context['add_to_cart_form'] = AddToCartProductForm()
         return context
 
 
