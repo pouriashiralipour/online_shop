@@ -6,7 +6,6 @@ from .cart import Cart
 from .forms import AddToCartProductForm
 
 
-@require_POST
 def cart_detail_view(request):
     cart = Cart(request)
 
@@ -19,6 +18,7 @@ def cart_detail_view(request):
     return render(request, 'cart/cart_details.html', context={'cart': cart})
 
 
+@require_POST
 def add_to_cart_view(request, product_id):
     cart = Cart(request)
 
