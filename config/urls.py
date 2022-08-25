@@ -26,6 +26,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('products/', include('products.urls')),
     path('search/', views.SearchResultsView.as_view(), name='search_results'),
+    path('cart/', include('cart.urls')),
 
     # rosetta app
     path('rosetta/', include('rosetta.urls')),
