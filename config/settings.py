@@ -41,12 +41,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
 
     # local apps
     'accounts.apps.AccountsConfig',
     'pages.apps.PagesConfig',
     'products.apps.ProductsConfig',
     'cart.apps.CartConfig',
+    'jalali.apps.JalaliConfig',
 
     # third party apps
     'crispy_forms',
@@ -57,14 +59,14 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'import_export',
 ]
-
-USE_THOUSAND_SEPARATOR = True
-
-THOUSAND_SEPARATOR = ','
-
-DECIMAL_SEPARATOR = '.'
-
-NUMBER_GROUPING = 3
+#
+# USE_THOUSAND_SEPARATOR = True
+#
+# THOUSAND_SEPARATOR = ','
+#
+# DECIMAL_SEPARATOR = '.'
+#
+# NUMBER_GROUPING = 3
 
 SITE_ID = 1
 
@@ -195,6 +197,8 @@ ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
+SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_SAMESITE = 'Lax'
 
 # media files
 MEDIA_URL = '/media/'
@@ -207,3 +211,6 @@ MESSAGE_TAGS = {
 
 # for import_export
 IMPORT_EXPORT_USE_TRANSACTIONS = True
+
+
+ACCOUNT_FORMS = {'signup': 'accounts.forms.YourSignupForm'}

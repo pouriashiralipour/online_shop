@@ -2,6 +2,8 @@ from django.urls import path, re_path
 
 from . import views
 
+app_name = 'product'
+
 urlpatterns = [
     path('', views.ProductListView.as_view(), name='product_list_view'),
     # path('<str:slug>/', views.product_details_view, name='product_details_view'),

@@ -1,12 +1,19 @@
-# from django.shortcuts import render
-# from django.views import generic
-# from django.urls import reverse_lazy
-#
-# from .forms import CustomUserCreationForm
-#
-#
-# class SignUpView(generic.CreateView):
-#     template_name = 'registration/login.html'
-#     form_class = CustomUserCreationForm
-#     success_url = reverse_lazy('login')
-#     context_object_name = 'signup_form'
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
+from django.urls import reverse_lazy
+from allauth.account.views import PasswordChangeView
+
+
+class LoginAfterPasswordChangeView(PasswordChangeView):
+    @property
+    def success_url(self):
+        return reverse_lazy('generic: password_change_success')
+
+
+login_after_password_change = login_required(LoginAfterPasswordChangeView.as_view())
+
+
+@login_required
+def password_change_success(request):
+    template = "account/password_change_success.html"
+    return render(request, template)

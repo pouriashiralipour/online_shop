@@ -3,12 +3,13 @@ from django.contrib import messages
 from django.utils.translation import gettext, gettext_lazy as _
 from django.utils.translation import ngettext
 from import_export.admin import ImportExportModelAdmin
+from jalali_date.admin import ModelAdminJalaliMixin, StackedInlineJalaliMixin, TabularInlineJalaliMixin
 
 from .models import Product, Comments, Category, IPAddress
 
 
 @admin.register(IPAddress)
-class IPAddressAdmin(admin.ModelAdmin):
+class IPAddressAdmin(StackedInlineJalaliMixin, admin.ModelAdmin):
     list_display = ['ip_address']
 
 
@@ -19,7 +20,7 @@ class CommentInline(admin.StackedInline):
 
 
 @admin.register(Product)
-class ProductAdmin(ImportExportModelAdmin):
+class ProductAdmin(ModelAdminJalaliMixin, ImportExportModelAdmin):
     list_display = ['title', 'cover_img', 'slug', 'category_display', 'price', 'status', 'active', 'datetime_created']
     search_fields = ('title',)
     prepopulated_fields = {'slug': ('title',)}
@@ -72,7 +73,7 @@ class ProductAdmin(ImportExportModelAdmin):
 
 
 @admin.register(Comments)
-class CommentAdmin(admin.ModelAdmin):
+class CommentAdmin(ModelAdminJalaliMixin, ImportExportModelAdmin):
     list_display = ['product', 'author', 'text', 'stars', 'is_active', 'recommend']
     ordering = ('datetime_created',)
     list_per_page = 25
@@ -99,7 +100,7 @@ class CommentAdmin(admin.ModelAdmin):
 
 
 @admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
+class CategoryAdmin(ModelAdminJalaliMixin, ImportExportModelAdmin):
     list_display = ['title', 'status', 'parent', 'datetime_created']
     prepopulated_fields = {'slug': ('title',)}
     actions = ['make_de_active', 'make_active']

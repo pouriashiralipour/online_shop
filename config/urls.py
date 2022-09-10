@@ -19,16 +19,17 @@ from django.urls import path, include
 from django.conf.urls.static import static
 
 from products import views
+# from accounts.views import login_after_password_change
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('pages.urls')),
-    path('accounts/', include('allauth.urls')),
-    path('products/', include('products.urls')),
-    path('search/', views.SearchResultsView.as_view(), name='search_results'),
-    path('cart/', include('cart.urls')),
+                  path('admin/', admin.site.urls),
+                  path('', include('pages.urls')),
+                  path('accounts/', include('allauth.urls')),
+                  path('products/', include('products.urls')),
+                  path('search/', views.SearchResultsView.as_view(), name='search_results'),
+                  path('cart/', include('cart.urls')),
 
-    # rosetta app
-    path('rosetta/', include('rosetta.urls')),
+                  # rosetta app
+                  path('rosetta/', include('rosetta.urls')),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

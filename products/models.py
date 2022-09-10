@@ -6,8 +6,7 @@ from django.utils.translation import gettext_lazy as _
 from django.utils.text import slugify
 from django.db.models.signals import pre_save, post_save
 from django.utils.html import format_html
-
-from .templatetags import utilis
+from django.utils import timezone
 
 
 class IPAddress(models.Model):
@@ -30,7 +29,7 @@ class Category(models.Model):
     title = models.CharField(max_length=250, verbose_name=_('title'))
     slug = models.SlugField(unique=True, allow_unicode=True, null=True, blank=True, verbose_name=_('slug'))
     status = models.BooleanField(default=True, verbose_name=_('status'))
-    datetime_created = models.DateTimeField(auto_now_add=True, verbose_name=_('datetime_created'), null=True,
+    datetime_created = models.DateTimeField(default=timezone.now, verbose_name=_('datetime_created'), null=True,
                                             editable=True)
     datetime_modified = models.DateTimeField(auto_now=True, verbose_name=_('datetime_modified'), null=True)
 
@@ -56,7 +55,7 @@ class Product(models.Model):
     active = models.BooleanField(default=True, verbose_name=_('active'))
     status = models.CharField(choices=STATUS_CHOICES, max_length=3, default='ava', verbose_name=_('status'))
     cover = models.ImageField(upload_to='covers/', blank=True, verbose_name=_('cover'))
-    datetime_created = models.DateTimeField(auto_now_add=True, verbose_name=_('datetime_created'))
+    datetime_created = models.DateTimeField(default=timezone.now, verbose_name=_('datetime_created'))
     datetime_modified = models.DateTimeField(auto_now=True, verbose_name=_('datetime_modified'))
     hits = models.ManyToManyField(IPAddress, verbose_name=_('hits'), related_name='hits', blank=True)
 
@@ -69,7 +68,7 @@ class Product(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('product_details_view', args=[self.slug])
+        return reverse('product:product_details_view', args=[self.slug])
 
     def category_published(self):
         return self.category.filter(status=True)
@@ -164,4 +163,4 @@ class Comments(models.Model):
         ordering = ['datetime_created']
 
     def get_absolute_url(self):
-        return reverse('product_details_view', args=[self.product.slug])
+        return reverse('product:product_details_view', args=[self.product.slug])
