@@ -58,15 +58,16 @@ INSTALLED_APPS = [
     'jalali_date',
     'widget_tweaks',
     'import_export',
+    'ckeditor',
 ]
-#
-# USE_THOUSAND_SEPARATOR = True
-#
-# THOUSAND_SEPARATOR = ','
-#
-# DECIMAL_SEPARATOR = '.'
-#
-# NUMBER_GROUPING = 3
+
+USE_THOUSAND_SEPARATOR = True
+
+THOUSAND_SEPARATOR = ','
+
+DECIMAL_SEPARATOR = '.'
+
+NUMBER_GROUPING = 3
 
 SITE_ID = 1
 
