@@ -51,6 +51,7 @@ class Product(models.Model):
     slug = models.SlugField(max_length=500, unique=True, allow_unicode=True, null=True, blank=True,
                             verbose_name=_('slug'))
     category = models.ManyToManyField(Category, verbose_name=_('category'), related_name='products')
+    short_description = models.TextField(verbose_name=_('short description'), blank=True, null=True)
     description = RichTextField(verbose_name=_('description'))
     price = models.PositiveIntegerField(verbose_name=_('price'))
     active = models.BooleanField(default=True, verbose_name=_('active'))
