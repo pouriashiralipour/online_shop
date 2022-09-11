@@ -7,6 +7,7 @@ from django.utils.text import slugify
 from django.db.models.signals import pre_save, post_save
 from django.utils.html import format_html
 from django.utils import timezone
+from ckeditor.fields import RichTextField
 
 
 class IPAddress(models.Model):
@@ -50,7 +51,7 @@ class Product(models.Model):
     slug = models.SlugField(max_length=500, unique=True, allow_unicode=True, null=True, blank=True,
                             verbose_name=_('slug'))
     category = models.ManyToManyField(Category, verbose_name=_('category'), related_name='products')
-    description = models.TextField(verbose_name=_('description'))
+    description = RichTextField(verbose_name=_('description'))
     price = models.PositiveIntegerField(verbose_name=_('price'))
     active = models.BooleanField(default=True, verbose_name=_('active'))
     status = models.CharField(choices=STATUS_CHOICES, max_length=3, default='ava', verbose_name=_('status'))
