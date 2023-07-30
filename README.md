@@ -20,7 +20,7 @@ This is a boilerplate to start a django project with postgresql as database runn
 First clone the project.
 
 ```bash
-git clone https://github.com/pouriashiralipour/online_shop
+git clone https://github.com/pouriashiralipour/online_shop
 ```
 
 Then make sure Docker is running.
