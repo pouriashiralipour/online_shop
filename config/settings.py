@@ -155,3 +155,9 @@ LOGIN_REDIRECT_URL = 'pages:home'
 
 # crispy forms config
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# allauth config
+# ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+
