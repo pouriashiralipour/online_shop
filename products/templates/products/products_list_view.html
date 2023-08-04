@@ -6,6 +6,7 @@
 
 {% block content %}
     {% for product in products %}
+        <img src="{{ product.image.url }}" alt="">
         <a href="{{ product.get_absolute_url }}"><h1>
             {{ product.title }}
         </h1></a>
