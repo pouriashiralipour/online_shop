@@ -1,7 +1,9 @@
 import random
 
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
+from django.utils.html import format_html
 from django.utils.translation import gettext, gettext_lazy as _
 from django.utils.text import slugify
 from django.db.models.signals import pre_save, post_save
@@ -25,6 +27,20 @@ class Products(models.Model):
         verbose_name = _('product')
         verbose_name_plural = _('products')
         ordering = ['-datetime_created']
+
+    # def get_absolute_url(self):
+    #     return reverse('category:category', args=[self.slug])
+
+    def __str__(self):
+        return self.title
+
+    # def cover_img(self):
+    #     try:
+    #         return format_html("<img width=60 src='{}'>".format(self.image.url))
+    #     except:
+    #         return ''
+    #
+    # cover_img.short_description = _('image')
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
