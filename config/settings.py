@@ -170,8 +170,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # redirect
-LOGOUT_REDIRECT_URL = 'products/list_view'
-LOGIN_REDIRECT_URL = 'products/list_view'
+LOGOUT_REDIRECT_URL = 'products:list_view'
+LOGIN_REDIRECT_URL = 'products:list_view'
 
 # crispy forms config
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
