@@ -16,3 +16,8 @@ class Products(models.Model):
     status = models.CharField(choices=STATUS_CHOICES, max_length=3, default='ava', verbose_name=_('status'))
     datetime_created = models.DateTimeField(default=timezone.now, verbose_name=_('datetime_created'))
     datetime_modified = models.DateTimeField(auto_now=True, verbose_name=_('datetime_modified'))
+
+    class Meta:
+        verbose_name = _('product')
+        verbose_name_plural = _('products')
+        ordering = ['-datetime_created']
