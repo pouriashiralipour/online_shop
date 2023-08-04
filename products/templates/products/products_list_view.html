@@ -1,16 +1,16 @@
 {% extends '_base.html' %}
 
 {% block title %}
-	ListView
+    ListView
 {% endblock %}
 
 {% block content %}
-	{% for product in products %}
-		<h1>
-        {{ product.title }}
-        </h1>
+    {% for product in products %}
+        <a href="{{ product.get_absolute_url }}"><h1>
+            {{ product.title }}
+        </h1></a>
         <h4>{{ product.description }}</h4>
         <p>{{ product.price }}</p>
-	{% endfor %}
+    {% endfor %}
 
 {% endblock %}

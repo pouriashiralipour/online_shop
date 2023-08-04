@@ -1,0 +1,123 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-04 14:51+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: .\admin.py:16
+msgid "Selected products are not available"
+msgstr "از دسترس خارج کردن محصولات انتخاب شده"
+
+#: .\admin.py:20
+#, python-format
+msgid "%d story was successfully marked as not available."
+msgstr "%d  محصول با موفقیت ناموجود شد"
+
+#: .\admin.py:21
+#, python-format
+msgid "%d stories were successfully marked as not available."
+msgstr "%d  محصول با موفقیت ناموجود شدند"
+
+#: .\admin.py:25
+msgid "Selected products are active"
+msgstr "فعال کردن محصولات انتخاب شده"
+
+#: .\admin.py:29
+#, python-format
+msgid "%d story was successfully marked as activated."
+msgstr "محصولات انتخاب شده با موفقیت فعال شدند"
+
+#: .\admin.py:30
+#, python-format
+msgid "%d stories were successfully marked as activated."
+msgstr "%d  محصول با موفقیت فعال شد"
+
+#: .\admin.py:34
+msgid "Selected products are de_active"
+msgstr "غیر فعال کردن محصولات انتخاب شده"
+
+#: .\admin.py:38
+#, python-format
+msgid "%d story was successfully marked as deactivated."
+msgstr "%d  محصول با موفقیت غیرفعال شد"
+
+#: .\admin.py:39
+#, python-format
+msgid "%d stories were successfully marked as deactivated."
+msgstr "%d  محصول با موفقیت غیرفعال شدند"
+
+#: .\admin.py:43
+msgid "Selected products are available"
+msgstr "در دسترس قرار دادن محصولات انتخاب شده"
+
+#: .\admin.py:47
+#, python-format
+msgid "%d story was successfully marked as available."
+msgstr "%d  محصول با موفقیت موجود شد"
+
+#: .\admin.py:48
+#, python-format
+msgid "%d stories were successfully marked as available."
+msgstr "%d  محصول با موفقیت موجود شدند"
+
+#: .\apps.py:8 .\models.py:28
+msgid "products"
+msgstr "محصولات"
+
+#: .\models.py:14
+msgid "available"
+msgstr "موجود"
+
+#: .\models.py:15
+msgid "not_available"
+msgstr "ناموجود"
+
+#: .\models.py:17
+msgid "title"
+msgstr "عنوان"
+
+#: .\models.py:18
+msgid "slug"
+msgstr "آدرس"
+
+#: .\models.py:19
+msgid "description"
+msgstr "توضیحات"
+
+#: .\models.py:20
+msgid "price"
+msgstr "قیمت"
+
+#: .\models.py:21
+msgid "active"
+msgstr "فعال"
+
+#: .\models.py:22
+msgid "status"
+msgstr "وضعیت"
+
+#: .\models.py:23
+msgid "datetime_created"
+msgstr "تاریخ ساخت"
+
+#: .\models.py:24
+msgid "datetime_modified"
+msgstr "تاریخ ویرایش"
+
+#: .\models.py:27
+msgid "product"
+msgstr "محصول"

@@ -28,8 +28,8 @@ class Products(models.Model):
         verbose_name_plural = _('products')
         ordering = ['-datetime_created']
 
-    # def get_absolute_url(self):
-    #     return reverse('category:category', args=[self.slug])
+    def get_absolute_url(self):
+        return reverse('products:details_view', args=[self.slug])
 
     def __str__(self):
         return self.title
