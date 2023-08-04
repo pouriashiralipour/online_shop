@@ -7,7 +7,7 @@
 Hello from {{ site_name }}.
 
 If you requested this email please click on the link below:
-{{ active_url }}
+{{ activate_url }}
 
 {% endblocktrans %}
 {% endautoescape %}
