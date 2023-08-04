@@ -8,8 +8,8 @@ from .models import Products
 
 @admin.register(Products)
 class ProductsAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
-    list_display = ['title', 'slug', 'price', 'status', 'active', 'datetime_created']
-    search_field = ('title', )
+    list_display = ['title', 'cover_img', 'slug', 'price', 'status', 'active', 'datetime_created']
+    search_field = ('title',)
     prepopulated_fields = {'slug': ('title',)}
     actions = ['make_not_available', 'make_available', 'make_active', 'make_de_active']
 
