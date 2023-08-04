@@ -6,6 +6,7 @@ from .models import Products
 
 class ProductsListView(generic.ListView):
     template_name = 'products/products_list_view.html'
+    paginate_by = 6
     # model = Products
     queryset = Products.objects.filter(active=True)
     context_object_name = 'products'
