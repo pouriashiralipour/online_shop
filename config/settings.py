@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap4',
     'allauth',
     'allauth.account',
+    'jalali_date',
 
 ]
 
