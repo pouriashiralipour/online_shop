@@ -18,6 +18,7 @@ class Products(models.Model):
     slug = models.SlugField(max_length=500, unique=True, allow_unicode=True, verbose_name=_('slug'))
     description = models.TextField(verbose_name=_('description'))
     price = models.PositiveIntegerField(default=0, verbose_name=_('price'))
+    image = models.ImageField(upload_to='covers/', verbose_name=_('image'))
     active = models.BooleanField(default=True, verbose_name=_('active'))
     status = models.CharField(choices=STATUS_CHOICES, max_length=3, default='ava', verbose_name=_('status'))
     datetime_created = models.DateTimeField(default=timezone.now, verbose_name=_('datetime_created'))
@@ -34,13 +35,13 @@ class Products(models.Model):
     def __str__(self):
         return self.title
 
-    # def cover_img(self):
-    #     try:
-    #         return format_html("<img width=60 src='{}'>".format(self.image.url))
-    #     except:
-    #         return ''
-    #
-    # cover_img.short_description = _('image')
+    def cover_img(self):
+        try:
+            return format_html("<img width=60 src='{}'>".format(self.image.url))
+        except:
+            return ''
+
+    cover_img.short_description = _('image')
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
