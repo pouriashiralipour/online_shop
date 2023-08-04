@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-04 14:51+0330\n"
+"POT-Creation-Date: 2023-08-04 15:16+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,7 +74,7 @@ msgstr "%d  محصول با موفقیت موجود شد"
 msgid "%d stories were successfully marked as available."
 msgstr "%d  محصول با موفقیت موجود شدند"
 
-#: .\apps.py:8 .\models.py:28
+#: .\apps.py:8 .\models.py:29
 msgid "products"
 msgstr "محصولات"
 
@@ -102,22 +102,26 @@ msgstr "توضیحات"
 msgid "price"
 msgstr "قیمت"
 
-#: .\models.py:21
+#: .\models.py:21 .\models.py:44
+msgid "image"
+msgstr "عکس"
+
+#: .\models.py:22
 msgid "active"
 msgstr "فعال"
 
-#: .\models.py:22
+#: .\models.py:23
 msgid "status"
 msgstr "وضعیت"
 
-#: .\models.py:23
+#: .\models.py:24
 msgid "datetime_created"
 msgstr "تاریخ ساخت"
 
-#: .\models.py:24
+#: .\models.py:25
 msgid "datetime_modified"
 msgstr "تاریخ ویرایش"
 
-#: .\models.py:27
+#: .\models.py:28
 msgid "product"
 msgstr "محصول"
