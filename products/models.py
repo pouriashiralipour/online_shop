@@ -1,5 +1,6 @@
 import random
 
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
@@ -82,3 +83,29 @@ def products_post_save(sender, instance, created, *args, **kwargs):
 
 
 post_save.connect(products_post_save, sender=Products)
+
+
+class Comments(models.Model):
+    CHOICES = [
+        ('1', _('very Bad')),
+        ('2', _('Bad')),
+        ('3', _('Normal')),
+        ('4', _('Good')),
+        ('5', _('Perfect'))
+    ]
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments', verbose_name=_('user'))
+    product = models.ForeignKey(Products, on_delete=models.CASCADE, related_name='comments', verbose_name=_('product'))
+    text = models.TextField(verbose_name=_('text'))
+    is_active = models.BooleanField(default=True, verbose_name=_('is_active'))
+    recommend = models.BooleanField(default=True, verbose_name=_('recommend'))
+    stars = models.CharField(max_length=10, choices=CHOICES)
+    datetime_created = models.DateTimeField(auto_now_add=True, verbose_name=_('datetime_created'))
+    datetime_modified = models.DateTimeField(auto_now=True, verbose_name=_('datetime_modified'))
+
+    class Meta:
+        verbose_name = _('comment')
+        verbose_name_plural = _('comments')
+        ordering = ['-datetime_created']
+
+    def __str__(self):
+        return f'{self.user}: {self.text}'
