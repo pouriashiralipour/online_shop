@@ -30,8 +30,8 @@ class CommentCreateView(generic.CreateView):
     model = Comments
     form_class = CommentForm
 
-    def get_success_url(self):
-        return reverse('products:details_view')
+    # def get_success_url(self):
+    #     return reverse('products:details_view')
 
     def form_valid(self, form):
         obj = form.save(commit=False)

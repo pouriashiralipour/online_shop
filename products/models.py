@@ -98,7 +98,7 @@ class Comments(models.Model):
     text = models.TextField(verbose_name=_('text'))
     is_active = models.BooleanField(default=True, verbose_name=_('is_active'))
     recommend = models.BooleanField(default=True, verbose_name=_('recommend'))
-    stars = models.CharField(max_length=10, choices=CHOICES, verbose_name=_('star'))
+    stars = models.CharField(max_length=10, choices=CHOICES, verbose_name=_('star'), null=True, blank=True)
     datetime_created = models.DateTimeField(auto_now_add=True, verbose_name=_('datetime_created'))
     datetime_modified = models.DateTimeField(auto_now=True, verbose_name=_('datetime_modified'))
 
@@ -106,6 +106,9 @@ class Comments(models.Model):
         verbose_name = _('comment')
         verbose_name_plural = _('comments')
         ordering = ['-datetime_created']
+
+    def get_absolute_url(self):
+        return reverse('products:details_view', args=[self.product.slug])
 
     def __str__(self):
         return f'{self.user}: {self.text}'
