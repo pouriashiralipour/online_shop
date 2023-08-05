@@ -3,7 +3,7 @@ from django.contrib import admin, messages
 from django.utils.translation import gettext, gettext_lazy as _, ngettext
 from jalali_date.admin import ModelAdminJalaliMixin
 
-from .models import Products
+from .models import Products, Comments
 
 
 @admin.register(Products)
@@ -48,3 +48,9 @@ class ProductsAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
             _('%d stories were successfully marked as available.'),
             updated,
         ) % updated, messages.SUCCESS)
+
+
+@admin.register(Comments)
+class CommentsAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
+    list_display = ['user', 'product', 'is_active', 'recommend', 'stars', 'datetime_created']
+    search_field = ('product',)
