@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-04 15:16+0330\n"
+"POT-Creation-Date: 2023-08-05 08:19+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,54 +74,100 @@ msgstr "%d  محصول با موفقیت موجود شد"
 msgid "%d stories were successfully marked as available."
 msgstr "%d  محصول با موفقیت موجود شدند"
 
-#: .\apps.py:8 .\models.py:29
+#: .\apps.py:8 .\models.py:30
 msgid "products"
 msgstr "محصولات"
 
-#: .\models.py:14
+#: .\models.py:15
 msgid "available"
 msgstr "موجود"
 
-#: .\models.py:15
+#: .\models.py:16
 msgid "not_available"
 msgstr "ناموجود"
 
-#: .\models.py:17
+#: .\models.py:18
 msgid "title"
 msgstr "عنوان"
 
-#: .\models.py:18
+#: .\models.py:19
 msgid "slug"
 msgstr "آدرس"
 
-#: .\models.py:19
+#: .\models.py:20
 msgid "description"
 msgstr "توضیحات"
 
-#: .\models.py:20
+#: .\models.py:21
 msgid "price"
 msgstr "قیمت"
 
-#: .\models.py:21 .\models.py:44
+#: .\models.py:22 .\models.py:45
 msgid "image"
 msgstr "عکس"
 
-#: .\models.py:22
+#: .\models.py:23
 msgid "active"
 msgstr "فعال"
 
-#: .\models.py:23
+#: .\models.py:24
 msgid "status"
 msgstr "وضعیت"
 
-#: .\models.py:24
+#: .\models.py:25 .\models.py:102
 msgid "datetime_created"
 msgstr "تاریخ ساخت"
 
-#: .\models.py:25
+#: .\models.py:26 .\models.py:103
 msgid "datetime_modified"
 msgstr "تاریخ ویرایش"
 
-#: .\models.py:28
+#: .\models.py:29 .\models.py:97
 msgid "product"
 msgstr "محصول"
+
+#: .\models.py:90
+msgid "very Bad"
+msgstr "خیلی بد"
+
+#: .\models.py:91
+msgid "Bad"
+msgstr "بد"
+
+#: .\models.py:92
+msgid "Normal"
+msgstr "متوسط"
+
+#: .\models.py:93
+msgid "Good"
+msgstr "خوب"
+
+#: .\models.py:94
+msgid "Perfect"
+msgstr "عالی"
+
+#: .\models.py:96
+msgid "user"
+msgstr "کاربر"
+
+#: .\models.py:98
+msgid "text"
+msgstr "متن"
+
+#: .\models.py:99
+#, fuzzy
+#| msgid "active"
+msgid "is_active"
+msgstr "فعال"
+
+#: .\models.py:100
+msgid "recommend"
+msgstr "پیشنهاد می کنم"
+
+#: .\models.py:106
+msgid "comment"
+msgstr "نظر"
+
+#: .\models.py:107
+msgid "comments"
+msgstr "نظر ها"
