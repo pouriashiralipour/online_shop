@@ -2,6 +2,8 @@
 {% load static %}
 {% load humanize %}
 {% load persian_number_translator %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
 
 {% block title %}
     {{ product.title }}
@@ -85,38 +87,7 @@
                                 <div class="tab-pane fade show active" id="nav-description" role="tabpanel"
                                      aria-labelledby="nav-description-tab">
                                     <div class="product-description text-justify">
-                                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از
-                                            طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که
-                                            لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف
-                                            بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و
-                                            آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت
-                                            بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در
-                                            زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود
-                                            در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل
-                                            حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی
-                                            اساسا مورد استفاده قرار گیرد.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
-                                            از صنعت چاپ، و با استفاده از
-                                            طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که
-                                            لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف
-                                            بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و
-                                            آینده، شناخت فراوان جامعه و متخصصان را می طلبد،
-                                            تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان
-                                            خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت
-                                            که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و
-                                            زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی،
-                                            و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار
-                                            گیرد.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده
-                                            از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان
-                                            که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز،</p>
-                                        <p>
-                                            و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در
-                                            شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا
-                                            با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان
-                                            خلاقی، و فرهنگ پیشرو در زبان فارس
-                                            ی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه
-                                            راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی
-                                            دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد
-                                            استفاده قرار گیرد.</p>
+                                        <p>{{ product.description|linebreaks }}</p>
 
                                     </div>
                                 </div>
@@ -227,7 +198,8 @@
                                                 <div class="col-lg-8 m-auto">
                                                     <span class="reply-title pull-right">نظر خود را بنویسید</span>
                                                     <br>
-                                                    <form action="#" class="form text-right">
+                                                    <form action="{% url 'products:comment_create_view' product.id %}" class="form text-right" method="post">
+                                                        {% csrf_token %}
                                                         <div class="form-notes mb--20">
                                                             <p class="my-3"><span class="required">*</span>ایمیل شما
                                                                 برای دیگران نشان داده نمیشود.</p>
@@ -235,21 +207,27 @@
                                                         <div class="form__group mb--10">
                                                             <label class="form__label d-block" for="email">متن نظر
                                                                 شما<span class="required">*</span></label>
-                                                            <textarea name="review" id="review"
+                                                            <textarea name="text" id="review"
                                                                       class="form__input form__input--textarea"></textarea>
                                                         </div>
-                                                        <div class="form__group mb--20">
-                                                            <label class="form__label d-block" for="name">نام شما<span
-                                                                    class="required">*</span></label>
-                                                            <input type="text" name="name" id="name"
-                                                                   class="form__input">
+                                                        <div class="form__label d-block" dir="ltr">
+                                                            {{ comment_form.recommend|as_crispy_field }}
                                                         </div>
-                                                        <div class="form__group mb--20">
-                                                            <label class="form__label d-block" for="email">ایمیل
-                                                                شما<span class="required">*</span></label>
-                                                            <input type="email" name="email" id="email"
-                                                                   class="form__input">
+                                                        <div class="form__label d-block col-3" dir="ltr">
+                                                            {{ comment_form.stars|as_crispy_field }}
                                                         </div>
+{#                                                        <div class="form__group mb--20">#}
+{#                                                            <label class="form__label d-block" for="name">نام شما<span#}
+{#                                                                    class="required">*</span></label>#}
+{#                                                            <input type="text" name="name" id="name"#}
+{#                                                                   class="form__input">#}
+{#                                                        </div>#}
+{#                                                        <div class="form__group mb--20">#}
+{#                                                            <label class="form__label d-block" for="email">ایمیل#}
+{#                                                                شما<span class="required">*</span></label>#}
+{#                                                            <input type="email" name="email" id="email"#}
+{#                                                                   class="form__input">#}
+{#                                                        </div>#}
                                                         <div class="form__group">
                                                             <div class="form-row">
                                                                 <div class="col-12">

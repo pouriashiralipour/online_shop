@@ -98,7 +98,7 @@ class Comments(models.Model):
     text = models.TextField(verbose_name=_('text'))
     is_active = models.BooleanField(default=True, verbose_name=_('is_active'))
     recommend = models.BooleanField(default=True, verbose_name=_('recommend'))
-    stars = models.CharField(max_length=10, choices=CHOICES)
+    stars = models.CharField(max_length=10, choices=CHOICES, verbose_name=_('star'))
     datetime_created = models.DateTimeField(auto_now_add=True, verbose_name=_('datetime_created'))
     datetime_modified = models.DateTimeField(auto_now=True, verbose_name=_('datetime_modified'))
 
