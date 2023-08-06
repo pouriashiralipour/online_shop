@@ -113,6 +113,10 @@ class Comments(models.Model):
         verbose_name_plural = _('comments')
         ordering = ['-datetime_created']
 
+    # Manager
+    objects = models.Manager()
+    active_comments_manager = ActiveCommentsManager()
+
     def get_absolute_url(self):
         return reverse('products:details_view', args=[self.product.slug])
 
