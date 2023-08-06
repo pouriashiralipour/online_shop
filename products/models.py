@@ -85,6 +85,11 @@ def products_post_save(sender, instance, created, *args, **kwargs):
 post_save.connect(products_post_save, sender=Products)
 
 
+class ActiveCommentsManager(models.Manager):
+    def get_queryset(self):
+        return super(ActiveCommentsManager, self).get_queryset().filter(is_active=True)
+
+
 class Comments(models.Model):
     CHOICES = [
         ('1', _('very Bad')),
@@ -93,7 +98,8 @@ class Comments(models.Model):
         ('4', _('Good')),
         ('5', _('Perfect'))
     ]
-    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments', verbose_name=_('user'))
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments',
+                             verbose_name=_('user'))
     product = models.ForeignKey(Products, on_delete=models.CASCADE, related_name='comments', verbose_name=_('product'))
     text = models.TextField(verbose_name=_('text'))
     is_active = models.BooleanField(default=True, verbose_name=_('is_active'))
