@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-05 09:51+0330\n"
+"POT-Creation-Date: 2023-08-06 19:44+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,58 +18,58 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\admin.py:16
+#: .\admin.py:25
 msgid "Selected products are not available"
 msgstr "از دسترس خارج کردن محصولات انتخاب شده"
 
-#: .\admin.py:20
+#: .\admin.py:29
 #, python-format
 msgid "%d story was successfully marked as not available."
 msgstr "%d  محصول با موفقیت ناموجود شد"
 
-#: .\admin.py:21
+#: .\admin.py:30
 #, python-format
 msgid "%d stories were successfully marked as not available."
 msgstr "%d  محصول با موفقیت ناموجود شدند"
 
-#: .\admin.py:25
+#: .\admin.py:34
 msgid "Selected products are active"
 msgstr "فعال کردن محصولات انتخاب شده"
 
-#: .\admin.py:29
+#: .\admin.py:38
 #, python-format
 msgid "%d story was successfully marked as activated."
 msgstr "محصولات انتخاب شده با موفقیت فعال شدند"
 
-#: .\admin.py:30
+#: .\admin.py:39
 #, python-format
 msgid "%d stories were successfully marked as activated."
 msgstr "%d  محصول با موفقیت فعال شد"
 
-#: .\admin.py:34
+#: .\admin.py:43
 msgid "Selected products are de_active"
 msgstr "غیر فعال کردن محصولات انتخاب شده"
 
-#: .\admin.py:38
+#: .\admin.py:47
 #, python-format
 msgid "%d story was successfully marked as deactivated."
 msgstr "%d  محصول با موفقیت غیرفعال شد"
 
-#: .\admin.py:39
+#: .\admin.py:48
 #, python-format
 msgid "%d stories were successfully marked as deactivated."
 msgstr "%d  محصول با موفقیت غیرفعال شدند"
 
-#: .\admin.py:43
+#: .\admin.py:52
 msgid "Selected products are available"
 msgstr "در دسترس قرار دادن محصولات انتخاب شده"
 
-#: .\admin.py:47
+#: .\admin.py:56
 #, python-format
 msgid "%d story was successfully marked as available."
 msgstr "%d  محصول با موفقیت موجود شد"
 
-#: .\admin.py:48
+#: .\admin.py:57
 #, python-format
 msgid "%d stories were successfully marked as available."
 msgstr "%d  محصول با موفقیت موجود شدند"
@@ -114,64 +114,69 @@ msgstr "فعال"
 msgid "status"
 msgstr "وضعیت"
 
-#: .\models.py:25 .\models.py:102
+#: .\models.py:25 .\models.py:108
 msgid "datetime_created"
 msgstr "تاریخ ساخت"
 
-#: .\models.py:26 .\models.py:103
+#: .\models.py:26 .\models.py:109
 msgid "datetime_modified"
 msgstr "تاریخ ویرایش"
 
-#: .\models.py:29 .\models.py:97
+#: .\models.py:29 .\models.py:103
 msgid "product"
 msgstr "محصول"
 
-#: .\models.py:90
+#: .\models.py:95
 msgid "very Bad"
 msgstr "خیلی بد"
 
-#: .\models.py:91
+#: .\models.py:96
 msgid "Bad"
 msgstr "بد"
 
-#: .\models.py:92
+#: .\models.py:97
 msgid "Normal"
 msgstr "متوسط"
 
-#: .\models.py:93
+#: .\models.py:98
 msgid "Good"
 msgstr "خوب"
 
-#: .\models.py:94
+#: .\models.py:99
 msgid "Perfect"
 msgstr "عالی"
 
-#: .\models.py:96
+#: .\models.py:102
 msgid "user"
 msgstr "کاربر"
 
-#: .\models.py:98
+#: .\models.py:104
 msgid "text"
 msgstr "متن"
 
-#: .\models.py:99
+#: .\models.py:105
 #, fuzzy
 #| msgid "active"
 msgid "is_active"
 msgstr "فعال"
 
-#: .\models.py:100
+#: .\models.py:106
 msgid "recommend"
 msgstr "پیشنهاد می کنم"
 
-#: .\models.py:101
+#: .\models.py:107
 msgid "star"
 msgstr "امتیاز"
 
-#: .\models.py:106
+#: .\models.py:112
 msgid "comment"
 msgstr "نظر"
 
-#: .\models.py:107
+#: .\models.py:113
 msgid "comments"
 msgstr "نظر ها"
+
+#: .\views.py:32
+#| msgid "%d story was successfully marked as activated."
+msgid "Your comment was successfully registered."
+msgstr "کامنت شما با موفقیت ثبت شد ."

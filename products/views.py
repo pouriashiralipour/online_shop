@@ -1,6 +1,7 @@
 from django.views import generic
 from django.shortcuts import get_object_or_404
-from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
+from django.utils.translation import gettext, gettext_lazy as _
 
 from .models import Products, Comments
 from .forms import CommentForm
@@ -25,10 +26,10 @@ class ProductDetailsView(generic.DetailView):
         return context
 
 
-class CommentCreateView(generic.CreateView):
+class CommentCreateView(SuccessMessageMixin, generic.CreateView):
     model = Comments
     form_class = CommentForm
-
+    success_message = _('Your comment was successfully registered.')
     # def get_success_url(self):
     #     return reverse('products:details_view')
 

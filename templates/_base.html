@@ -32,14 +32,6 @@
 </head>
 
 <body dir='rtl'>
-    {% if message %}
-        <div class="container col-5 justify-content-center">
-            {% for message in messages %}
-            	<div class="alert alert-{{ message.tags }}">{{ message }}</div>
-            {% endfor %}
-            
-        </div>
-    {% endif %}
 <!-- Preloader Start -->
 <div class="ShoppingYar-preloader active">
     <div class="ShoppingYar-preloader-inner h-100 d-flex align-items-center justify-content-center">
@@ -49,7 +41,6 @@
     </div>
 </div>
 <!-- Preloader End -->
-
 <!-- Main Wrapper Start -->
 <div class="wrapper">
     <!-- Header Start -->
@@ -156,6 +147,13 @@
         </div>
     </header>
     <!-- Header End -->
+
+    <div class="container col-5 justify-content-center">
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+
+    </div>
 
     <!-- Main Content Wrapper Start -->
     {% block content %}
