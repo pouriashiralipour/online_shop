@@ -98,7 +98,7 @@ html, body {
 body {
     margin: 0;
     padding: 0;
-    font-size: 18px;
+    font-size: 14px;
     font-family: "iransansx","Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
     color: var(--body-fg);
     background: var(--body-bg);
@@ -478,7 +478,7 @@ input, textarea, select, .form-row p, form .button {
     vertical-align: middle;
     font-family: "iransansx", "Lucida Grande", Verdana, Arial, sans-serif;
     font-weight: normal;
-    font-size: 16px;
+    font-size: 13px;
 }
 .form-row div.help {
     padding: 2px 3px;
