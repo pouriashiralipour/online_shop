@@ -6,12 +6,21 @@ from jalali_date.admin import ModelAdminJalaliMixin
 from .models import Products, Comments
 
 
+class CommentsInline(admin.TabularInline):
+    model = Comments
+    fields = ['user', 'text', 'stars', 'is_active', 'recommend']
+    extra = 1
+
+
 @admin.register(Products)
 class ProductsAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
     list_display = ['title', 'cover_img', 'slug', 'price', 'status', 'active', 'datetime_created']
     search_field = ('title',)
     prepopulated_fields = {'slug': ('title',)}
     actions = ['make_not_available', 'make_available', 'make_active', 'make_de_active']
+    inlines = [
+        CommentsInline,
+    ]
 
     @admin.action(description=_('Selected products are not available'))
     def make_not_available(self, request, queryset):
