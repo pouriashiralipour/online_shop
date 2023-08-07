@@ -8,7 +8,7 @@ from products.models import Products
 def cart_page(request):
     cart = Cart(request)
     context = {'cart': cart}
-    return render(request, 'cart/cart.html')
+    return render(request, 'cart/cart.html', context)
 
 
 def add_to_cart_view(request, product_id):
