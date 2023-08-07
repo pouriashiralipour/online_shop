@@ -76,13 +76,13 @@
                                                                     min="1"
                                                             >
                                                         </div>
-                                                        <button type="submit" class="btn-small btn-success small">به روز رسانی</button>
+                                                        <button type="submit" class="border btn-success fa fa-refresh"></button>
                                                         {{ item.product_update_quantity_form.inplace }}
                                                     </form>
                                                 </td>
                                                 <td class="product-total-price">
                                                             <span class="product-price-wrapper">
-                                                                <span class="money">۲۹۶,۰۰۰ تومان</span>
+                                                                <span class="money">{{ item.total_price|translate_numbers|intcomma:False }}</span>
                                                             </span>
                                                 </td>
                                             </tr>
@@ -110,7 +110,7 @@
                                             <span>مجموع</span>
                                         </div>
                                         <div class="cart-calculator__item--value">
-                                            <span>۳۴۶,۰۰۰ تومان</span>
+                                            <span>{{ cart.get_total_price|translate_numbers|intcomma:False }} تومان</span>
                                         </div>
                                     </div>
                                     <div class="cart-calculator__item order-total">
@@ -119,7 +119,7 @@
                                         </div>
                                         <div class="cart-calculator__item--value">
                                                 <span class="product-price-wrapper">
-                                                    <span class="money">۳۴۶,۰۰۰ تومان</span>
+                                                    <span class="money">{{ cart.get_total_price|translate_numbers|intcomma:False }} تومان</span>
                                                 </span>
                                         </div>
                                     </div>
