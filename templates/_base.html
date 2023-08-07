@@ -1,4 +1,5 @@
 {% load static %}
+{% load persian_number_translator %}
 
 <!doctype html>
 <html class="no-js">
@@ -94,7 +95,9 @@
                             <li class="header-toolbar__item mini-cart-item">
                                 <a href="{% url 'cart:cart_detail' %}" class="header-toolbar__btn toolbar-btn mini-cart-btn">
                                     <i class="flaticon flaticon-shopping-cart"></i>
-                                    <sup class="mini-cart-count">2</sup>
+                                    {% if cart %}
+                                    	<sup class="mini-cart-count">{{ cart|length|translate_numbers }}</sup>
+                                    {% endif %}
                                 </a>
                             </li>
                             <li class="header-toolbar__item user-info">
