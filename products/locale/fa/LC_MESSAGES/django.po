@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-06 19:44+0330\n"
+"POT-Creation-Date: 2023-08-09 00:15+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,109 +74,113 @@ msgstr "%d  محصول با موفقیت موجود شد"
 msgid "%d stories were successfully marked as available."
 msgstr "%d  محصول با موفقیت موجود شدند"
 
-#: .\apps.py:8 .\models.py:30
+#: .\apps.py:8 .\models.py:32
 msgid "products"
 msgstr "محصولات"
 
-#: .\models.py:15
+#: .\models.py:16
 msgid "available"
 msgstr "موجود"
 
-#: .\models.py:16
+#: .\models.py:17
 msgid "not_available"
 msgstr "ناموجود"
 
-#: .\models.py:18
+#: .\models.py:19
 msgid "title"
 msgstr "عنوان"
 
-#: .\models.py:19
+#: .\models.py:20
 msgid "slug"
 msgstr "آدرس"
 
-#: .\models.py:20
+#: .\models.py:21
+#| msgid "description"
+msgid "short_description"
+msgstr "توضیحات کوتاه"
+
+#: .\models.py:22
 msgid "description"
 msgstr "توضیحات"
 
-#: .\models.py:21
+#: .\models.py:23
 msgid "price"
 msgstr "قیمت"
 
-#: .\models.py:22 .\models.py:45
+#: .\models.py:24 .\models.py:47
 msgid "image"
 msgstr "عکس"
 
-#: .\models.py:23
+#: .\models.py:25
 msgid "active"
 msgstr "فعال"
 
-#: .\models.py:24
+#: .\models.py:26
 msgid "status"
 msgstr "وضعیت"
 
-#: .\models.py:25 .\models.py:108
+#: .\models.py:27 .\models.py:110
 msgid "datetime_created"
 msgstr "تاریخ ساخت"
 
-#: .\models.py:26 .\models.py:109
+#: .\models.py:28 .\models.py:111
 msgid "datetime_modified"
 msgstr "تاریخ ویرایش"
 
-#: .\models.py:29 .\models.py:103
+#: .\models.py:31 .\models.py:105
 msgid "product"
 msgstr "محصول"
 
-#: .\models.py:95
+#: .\models.py:97
 msgid "very Bad"
 msgstr "خیلی بد"
 
-#: .\models.py:96
+#: .\models.py:98
 msgid "Bad"
 msgstr "بد"
 
-#: .\models.py:97
+#: .\models.py:99
 msgid "Normal"
 msgstr "متوسط"
 
-#: .\models.py:98
+#: .\models.py:100
 msgid "Good"
 msgstr "خوب"
 
-#: .\models.py:99
+#: .\models.py:101
 msgid "Perfect"
 msgstr "عالی"
 
-#: .\models.py:102
+#: .\models.py:104
 msgid "user"
 msgstr "کاربر"
 
-#: .\models.py:104
+#: .\models.py:106
 msgid "text"
 msgstr "متن"
 
-#: .\models.py:105
+#: .\models.py:107
 #, fuzzy
 #| msgid "active"
 msgid "is_active"
 msgstr "فعال"
 
-#: .\models.py:106
+#: .\models.py:108
 msgid "recommend"
 msgstr "پیشنهاد می کنم"
 
-#: .\models.py:107
+#: .\models.py:109
 msgid "star"
 msgstr "امتیاز"
 
-#: .\models.py:112
+#: .\models.py:114
 msgid "comment"
 msgstr "نظر"
 
-#: .\models.py:113
+#: .\models.py:115
 msgid "comments"
 msgstr "نظر ها"
 
-#: .\views.py:32
-#| msgid "%d story was successfully marked as activated."
+#: .\views.py:34
 msgid "Your comment was successfully registered."
 msgstr "کامنت شما با موفقیت ثبت شد ."
