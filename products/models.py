@@ -18,7 +18,7 @@ class Products(models.Model):
     )
     title = models.CharField(max_length=200, verbose_name=_('title'))
     slug = models.SlugField(max_length=500, unique=True, allow_unicode=True, verbose_name=_('slug'))
-    short_description = RichTextField(verbose_name=_('short_description'))
+    short_description = RichTextField(verbose_name=_('short_description'), blank=True)
     description = RichTextField(verbose_name=_('description'))
     price = models.PositiveIntegerField(default=0, verbose_name=_('price'))
     image = models.ImageField(upload_to='covers/', verbose_name=_('image'), blank=True)
