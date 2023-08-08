@@ -109,9 +109,6 @@
                                             <a class="text-right" href="my-account.html">حساب کاربری</a>
                                         </li>
                                         <li>
-                                            <a class="text-right" href="{% url 'cart:cart_detail' %}">سبد خرید</a>
-                                        </li>
-                                        <li>
                                             <a class="text-right" href="wishlist.html">علاقه مندی ها</a>
                                         </li>
                                         <li>
@@ -170,8 +167,13 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-9 text-center">
                         <div class="footer-widget mb--50">
-                            <div class="textwidget">
-                                <img src="{% static 'products/img/logo_1.png' %}" alt="Logo">
+                            <div class="site-branding" style="margin-right: 30px;">
+                                <a href="https://pouriashirali.iran.liara.run" class="logo" target="_blank">
+                                    <figure class="logo--normal d-none d-sm-block">
+                                        <img class="px-5" src="{% static 'products/img/logo_1.png' %}"
+                                             style="max-height: 50px; margin-bottom: -15px;" alt="Logo">
+                                    </figure>
+                                </a>
                             </div>
                         </div>
                         <div class="footer-widget mb--50 pb--1">
@@ -213,24 +215,24 @@
                 <div class="mini-cart__content">
                     <ul class="mini-cart__list text-right">
                         {% for item in cart %}
-                        	<li class="mini-cart__product d-flex justify-content-between">
-                            <div class="mini-cart__product__image">
-                                <a href="{{ item.product_obj.get_absolute_url }}">
-                                    <img src="{{ item.product_obj.image.url }}" alt="products">
-                                </a>
-                            </div>
-                            <div class="mini-cart__product__content pt-2">
+                            <li class="mini-cart__product d-flex justify-content-between">
+                                <div class="mini-cart__product__image">
+                                    <a href="{{ item.product_obj.get_absolute_url }}">
+                                        <img src="{{ item.product_obj.image.url }}" alt="products">
+                                    </a>
+                                </div>
+                                <div class="mini-cart__product__content pt-2">
                                     <span class="mini-cart__product__title d-flex flex-row justify-content-between">
                                         <a href="{{ item.product_obj.get_absolute_url }}"> {{ item.product_obj.title }} </a>
                                         <a href="{% url 'cart:remove' item.product_obj.id %}" class="">
                                             &#10060;
                                         </a>
                                     </span>
-                                <span class="mini-cart__product__quantity">
+                                    <span class="mini-cart__product__quantity">
                                         <span>{{ item.product_obj.price|translate_numbers|intcomma:False }} تومان</span> &#215; <span>{{ item.quantity|translate_numbers }}</span>
                                     </span>
-                            </div>
-                        </li>
+                                </div>
+                            </li>
                         {% endfor %}
 
                     </ul>
@@ -239,7 +241,8 @@
                         <span class="ammount">{{ cart.get_total_price|translate_numbers|intcomma:False }} تومان</span>
                     </div>
                     <div class="mini-cart__buttons">
-                        <a href="{% url 'cart:cart_detail' %}" class="btn btn-fullwidth btn-bg-sand mb--20">مشاهده سبد خرید</a>
+                        <a href="{% url 'cart:cart_detail' %}" class="btn btn-fullwidth btn-bg-sand mb--20">مشاهده سبد
+                            خرید</a>
                         <a href="checkout.html" class="btn btn-fullwidth btn-bg-sand">پرداخت</a>
                     </div>
                 </div>
