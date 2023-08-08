@@ -8,6 +8,7 @@ from django.utils.html import format_html
 from django.utils.translation import gettext, gettext_lazy as _
 from django.utils.text import slugify
 from django.db.models.signals import pre_save, post_save
+from ckeditor.fields import RichTextField
 
 
 class Products(models.Model):
@@ -17,7 +18,8 @@ class Products(models.Model):
     )
     title = models.CharField(max_length=200, verbose_name=_('title'))
     slug = models.SlugField(max_length=500, unique=True, allow_unicode=True, verbose_name=_('slug'))
-    description = models.TextField(verbose_name=_('description'))
+    short_description = RichTextField(verbose_name=_('short_description'))
+    description = RichTextField(verbose_name=_('description'))
     price = models.PositiveIntegerField(default=0, verbose_name=_('price'))
     image = models.ImageField(upload_to='covers/', verbose_name=_('image'), blank=True)
     active = models.BooleanField(default=True, verbose_name=_('active'))
