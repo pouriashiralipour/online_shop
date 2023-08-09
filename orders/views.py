@@ -28,5 +28,9 @@ def order_create_view(request):
                 )
             cart.clear()
 
+            request.user.first_name = order_obj.first_name
+            request.user.last_name = order_obj.last_name
+            request.user.save()
+
     context = {'form': order_form}
     return render(request, 'orders/order_create.html', context)
