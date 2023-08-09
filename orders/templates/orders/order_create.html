@@ -36,6 +36,11 @@
                         <div class="checkout-form">
                             <form action="" method="post" class="form form--checkout">
                                 {% csrf_token %}
+                                {% if form.errors %}
+                                    <div class="alert alert-danger">
+                                        {{ form.errors }}
+                                    </div>
+                                {% endif %}
                                 <div class="form-row mb--20">
                                     <div class="form__group col-md-6 mb-sm--30">
                                         <label for="billing_fname" class="form__label form__label--2">نام <span
@@ -65,14 +70,14 @@
                                                class="form__input form__input--2">
                                     </div>
                                 </div>
-                                <div class="form-row mb--20">
-                                    <div class="form__group col-12">
-                                        <label for="billing_email" class="form__label form__label--2">ایمیل <span
-                                                class="required">*</span></label>
-                                        <input type="email" name="email" id="billing_email"
-                                               class="form__input form__input--2">
-                                    </div>
-                                </div>
+{#                                <div class="form-row mb--20">#}
+{#                                    <div class="form__group col-12">#}
+{#                                        <label for="billing_email" class="form__label form__label--2">ایمیل <span#}
+{#                                                class="required">*</span></label>#}
+{#                                        <input type="email" name="email" id="billing_email"#}
+{#                                               class="form__input form__input--2">#}
+{#                                    </div>#}
+{#                                </div>#}
                                 <div class="form-row">
                                     <div class="form__group col-12">
                                         <label for="orderNotes" class="form__label form__label--2">یادداشت شما</label>
@@ -81,6 +86,7 @@
                                                   placeholder="اگر یادداشتی دارید در اینجا وارد کنید. در غیر این صورت این مکان را خالی بگذارید"></textarea>
                                     </div>
                                 </div>
+                                <button type="submit" class="btn">ارسال</button>
                             </form>
                         </div>
                     </div>
