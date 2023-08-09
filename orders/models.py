@@ -1,7 +1,6 @@
 from django.db import models
 from django.conf import settings
 from django.utils.translation import gettext, gettext_lazy as _
-from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Order(models.Model):
@@ -10,7 +9,7 @@ class Order(models.Model):
 
     first_name = models.CharField(max_length=100, verbose_name=_('first_name'))
     last_name = models.CharField(max_length=100, verbose_name=_('last_name'))
-    phone_number = PhoneNumberField(verbose_name=_('phone_number'))
+    phone_number = models.CharField(max_length=15, verbose_name=_('phone_number'))
     address = models.CharField(max_length=700, verbose_name=_('address'))
 
     order_note = models.TextField(verbose_name=_('order_note'), blank=True)
@@ -37,7 +36,7 @@ class OrderItem(models.Model):
     datetime_modified = models.DateTimeField(auto_now=True, verbose_name=_('datetime_modified'))
 
     def __str__(self):
-        return f'OrderItem {self.id} or order {self.order.id}'
+        return f'OrderItem {self.id}: {self.product} x {self.quantity} (price:{self.price})'
 
     class Meta:
         verbose_name = _('order_item')

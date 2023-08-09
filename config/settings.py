@@ -61,8 +61,6 @@ INSTALLED_APPS = [
     'jalali_date',
     'rosetta',
     'ckeditor',
-    'phonenumber_field',
-
 ]
 
 MIDDLEWARE = [
