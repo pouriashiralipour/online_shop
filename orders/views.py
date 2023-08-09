@@ -19,7 +19,7 @@ def order_create_view(request):
             order_obj.save()
 
             for item in cart:
-                product = item.product_obj
+                product = item['product_obj']
                 OrderItem.objects.create(
                     order=order_obj,
                     product=product,
