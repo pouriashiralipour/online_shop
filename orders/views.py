@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.utils.translation import gettext, gettext_lazy as _
 
 from .forms import OrderForm
 from cart.cart import Cart
@@ -10,6 +12,10 @@ from .models import OrderItem
 def order_create_view(request):
     order_form = OrderForm()
     cart = Cart(request)
+
+    if len(cart) == 0:
+        messages.warning(request, _('You can not proceed to checkout page because your cart is empty.'))
+        return redirect('products:list_view')
 
     if request.method == 'POST':
         order_form = OrderForm(request.POST)
@@ -31,6 +37,7 @@ def order_create_view(request):
             request.user.first_name = order_obj.first_name
             request.user.last_name = order_obj.last_name
             request.user.save()
+            messages.success(request, _('Your order has successfully placed.'))
 
     context = {'form': order_form}
     return render(request, 'orders/order_create.html', context)
