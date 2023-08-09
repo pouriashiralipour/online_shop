@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'products.apps.ProductsConfig',
     'cart.apps.CartConfig',
+    'orders.apps.OrdersConfig',
 
     # third party
     'crispy_forms',
