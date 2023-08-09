@@ -100,7 +100,7 @@
                                     {% for item in cart %}
                                         <tr>
                                             <th>{{ item.product_obj.title }}
-                                                <strong><span>&#10005;</span>۲</strong>
+                                                <strong><span>&#10005;</span>{{ item.quantity|translate_numbers }}</strong>
                                             </th>
                                             <td class="text-right">{{ item.product_obj.price|translate_numbers|intcomma:False }} تومان</td>
                                         </tr>
