@@ -30,7 +30,7 @@ class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='items', verbose_name=_('order'))
     product = models.ForeignKey('products.Products', on_delete=models.CASCADE, related_name='order_items', verbose_name=_('product'))
     quantity = models.PositiveIntegerField(default=1, verbose_name=_('quantity'))
-    price = models.PositiveIntegerField()
+    price = models.PositiveIntegerField(verbose_name=_('price'))
 
     datetime_created = models.DateTimeField(auto_now_add=True, verbose_name=_('datetime_created'))
     datetime_modified = models.DateTimeField(auto_now=True, verbose_name=_('datetime_modified'))
