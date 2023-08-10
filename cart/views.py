@@ -52,3 +52,4 @@ def clear_cart(request):
         messages.success(request, _('Your cart was clear successfully.'))
     else:
         messages.warning(request, _('Your cart is already empty.'))
+    return redirect('cart:cart_detail')
