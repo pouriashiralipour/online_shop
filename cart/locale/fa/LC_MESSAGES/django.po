@@ -24,7 +24,6 @@ msgid "carts"
 msgstr "سبد خرید"
 
 #: .\cart.py:37
-#, fuzzy
 #| msgid "Product successfully added to cart."
 msgid "Product successfully added to cart"
 msgstr "محصول با موفقیت به سبد خرید اضافه شد."

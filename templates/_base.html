@@ -97,7 +97,7 @@
                                 <a href="#miniCart" class="header-toolbar__btn toolbar-btn mini-cart-btn">
                                     <i class="flaticon flaticon-shopping-cart"></i>
                                     {% if cart %}
-                                    	<sup class="mini-cart-count">{{ cart|length|translate_numbers }}</sup>
+                                        <sup class="mini-cart-count">{{ cart|length|translate_numbers }}</sup>
                                     {% endif %}
                                 </a>
                             </li>
@@ -238,15 +238,20 @@
                         {% endfor %}
 
                     </ul>
-                    <div class="mini-cart__total">
-                        <span>جمع کل</span>
-                        <span class="ammount">{{ cart.get_total_price|translate_numbers|intcomma:False }} تومان</span>
-                    </div>
-                    <div class="mini-cart__buttons">
-                        <a href="{% url 'cart:cart_detail' %}" class="btn btn-fullwidth btn-bg-sand mb--20">مشاهده سبد
-                            خرید</a>
-                        <a href="checkout.html" class="btn btn-fullwidth btn-bg-sand">پرداخت</a>
-                    </div>
+                    {% if not cart.is_empty %}
+                        <div class="mini-cart__total">
+                            <span>جمع کل</span>
+                            <span class="ammount">{{ cart.get_total_price|translate_numbers|intcomma:False }} تومان</span>
+                        </div>
+                        <div class="mini-cart__buttons">
+                            <a href="{% url 'cart:cart_detail' %}" class="btn btn-fullwidth btn-bg-sand mb--20">مشاهده
+                                سبد
+                                خرید</a>
+                            <a href="checkout.html" class="btn btn-fullwidth btn-bg-sand">پرداخت</a>
+                        </div>
+                    {% else %}
+                        <div class="cart-empty-title">سبد خرید شما خالیست!</div>
+                    {% endif %}
                 </div>
             </div>
         </div>
