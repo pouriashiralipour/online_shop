@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-09 19:33+0330\n"
+"POT-Creation-Date: 2023-08-10 19:22+0330\n"
 "PO-Revision-Date: 2023-08-09 20:34+0430\n"
 "Last-Translator:   <impoush@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,7 +30,14 @@ msgid "Product successfully added to cart"
 msgstr "محصول با موفقیت به سبد خرید اضافه شد."
 
 #: .\cart.py:49
-#, fuzzy
 #| msgid "Product successfully removed from cart."
 msgid "Product successfully removed from cart"
 msgstr "محصول با موفقیت از سبد خرید حذف شد."
+
+#: .\views.py:52
+msgid "Your cart was clear successfully."
+msgstr "سبد خرید شما با موفقیت خالی شد."
+
+#: .\views.py:54
+msgid "Your cart is already empty."
+msgstr "سبد خرید شما در حال حاضر خالی می باشد."
